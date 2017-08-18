@@ -14,12 +14,25 @@
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    return "Home Page";
+    return "Landing Page";
 });
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home');
+
+/*************************
+  Rotas de Autenticação
+*************************/
 
 Route::get('/login', function() {
     return view('login');
 })->name('login');
 
+Route::post('/login', 'Auth@login');
 
-Route::post('/login', 'Login@login');
+Route::get('/register', function() {
+    return view('register');
+})->name('register');
+
+Route::post('/register', 'Auth@register');
