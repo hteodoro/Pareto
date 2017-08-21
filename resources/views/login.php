@@ -18,8 +18,8 @@
       <body>
          <form action="/login" method="post">
            <?php echo csrf_field(); ?>
-           <input type="text" name="username" placeholder="username...">
-           <input type="password" name="password" placeholder="password...">
+           <input type="text" name="email" placeholder="seu email...">
+           <input type="password" name="password" placeholder="sua senha...">
            <input type="submit" value="login!">
          </form>
       </body>

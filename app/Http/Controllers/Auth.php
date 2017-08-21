@@ -8,25 +8,28 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\User;
 
-class Auth extends Controller{
+class Auth extends Controller {
 
     public function login(Request $request) {
-      if($request->has('username')) {
-        $username = $request->username;
+
+      $requests = $request->all();
+
+      foreach($requests as $value) {
+        if(empty($value)) {
+          return $this->flashSession('auth_status', 'Preencha todos os campos...', 'login');
+        }
       }
 
-      if($request->has('password')) {
-        $password = $request->password;
-      }
+      $email = strtolower($request->email);
+      $password = $request->password;
 
-      //TODO: Validar valores de request
 
-      $user_result = $this->getUser($username, 'username');
+      $user_result = $this->getUser($email, 'email');
 
       if(!empty($user_result)) {
         foreach($user_result as $user) {
-          if(Hash::check($password, $user->user_pass)) {
-            return "Bem vindo $username!";
+          if(Hash::check($password, $user->senha)) {
+            return "Bem vindo $user->nome!";
             //TODO: Redirecionar para a Home page
           }
 
@@ -46,26 +49,27 @@ class Auth extends Controller{
 
 
     public function register(Request $request) {
-      if($request->has('username')) {
-        $username = $request->username;
+
+      $requests = $request->all();
+
+      foreach($requests as $value) {
+        if(empty($value)) {
+          return $this->flashSession('auth_status', 'Preencha todos os campos...', 'register');
+        }
       }
 
-      if($request->has('password')) {
-        $password = $request->password;
-      }
+      $email = strtolower($request->email);
+      $name = strtolower($request->name);
+      $password = $request->password;
+      $repeatPassword = $request->repeat_password;
 
-      if($request->has('repeat_password')) {
-        $repeatPassword = $request->repeat_password;
-      }
 
-      //TODO: Validar valores de request
-
-      $user = $this->getUser($username, 'username');
+      $user = $this->getUser($email, 'email');
       // Se não for retornado nenhum valor à $user, significa que usuário não existe
       if(empty($user)) {
         // Inserindo novo usuário no banco de dados
         if($password == $repeatPassword) {
-          User::store($username, Hash::make($password));
+          User::store($email, $name, Hash::make($password));
           // Redirecionando para home
           return redirect()->route('home');
         }
@@ -85,21 +89,7 @@ class Auth extends Controller{
 
 
     public function getUser($key, $type) {
-      if($type == 'id') {
-        // Selecionando user por id
-        $result = DB::select("SELECT * FROM usuarios WHERE id = :id" , ['id' => $key]);
-        return $result;
-      }
-
-      elseif($type == 'username') {
-        // Selecionando user por username
-        $result = DB::select("SELECT * FROM usuarios WHERE user_name = :username", ['username' => $key]);
-        return $result;
-      }
-
-      else {
-        return null;
-      }
+      return User::show(['type' => $type, 'key' => $key]);
     }
 
 
@@ -113,5 +103,6 @@ class Auth extends Controller{
         return "Informações de redirecionamento insuficientes";
       }
     }
+
 
 }

@@ -13,12 +13,12 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
+Route::get('/', function() {
     return "Landing Page";
 });
 
 Route::get('/home', function() {
-    return view('home');
+    return view('app.home');
 })->name('home');
 
 /*************************

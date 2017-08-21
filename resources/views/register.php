@@ -18,9 +18,10 @@
       <body>
          <form action="/register" method="post">
            <?php echo csrf_field(); ?>
-           <input type="text" name="username" placeholder="username...">
-           <input type="password" name="password" placeholder="password...">
-           <input type="password" name="repeat_password" placeholder="repeat password...">
+           <input type="text" name="email" placeholder="seu email...">
+           <input type="text" name="name" placeholder="seu nome...">
+           <input type="password" name="password" placeholder="sua senha...">
+           <input type="password" name="repeat_password" placeholder="repita sua senha...">
            <input type="submit" value="register!">
          </form>
       </body>
