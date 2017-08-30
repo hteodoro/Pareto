@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 
 Route::get('/', function() {
     // TODO: Retornar landing page
-    return "Landing Page";
+    return view('landing');
 });
 
 /********************************
