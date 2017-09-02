@@ -27,8 +27,8 @@
             <ul id="nav-list">
               <!-- <li class="nav-list-item"><a href="#">soluções</a></li> -->
               <li class="nav-list-item"><a href="#">contato</a></li>
-              <li class="nav-list-item"><a href="#">login</a></li>
-              <li class="nav-list-item"><a href="#"><span>registrar</span></a></li>
+              <li class="nav-list-item"><a href="/login">login</a></li>
+              <li class="nav-list-item"><a href="/register"><span>registrar</span></a></li>
             </ul>
           </div>
 
@@ -92,7 +92,7 @@
               de desempenho.
             </p>
 
-            <a href="#"><p id="caller-button">Registrar!</p></a>
+            <a href="/register"><p id="caller-button">Registrar!</p></a>
           </div>
         </div>
 

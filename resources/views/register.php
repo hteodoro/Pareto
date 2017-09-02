@@ -12,18 +12,62 @@
         <meta charset="utf-8">
         <!-- Token for csrf protection -->
         <meta name="csrf-token" content="<?php echo csrf_token(); ?>">
-        <title>Register</title>
+        <title>Pareto - Faça seu registro</title>
+        <link rel="icon" href="<?php echo asset('images/pareto.png');?>" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo asset('css/normalize.css');?>">
+        <link rel="stylesheet" href="<?php echo asset('css/animate.min.css')?>">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?php echo asset('css/auth.min.css');?>">
       </head>
 
       <body>
-         <form action="/register" method="post">
-           <?php echo csrf_field(); ?>
-           <input type="text" name="email" placeholder="seu email...">
-           <input type="text" name="name" placeholder="seu nome...">
-           <input type="password" name="password" placeholder="sua senha...">
-           <input type="password" name="repeat_password" placeholder="repita sua senha...">
-           <input type="submit" value="register!">
-         </form>
+          <a href="/"><img id="back-link" title="Página Inicial" src="<?php echo asset('images/left-arrow.svg');?>"></a>
+
+          <div class="container animated fadeInDown">
+          <img class="animated rotateIn" src="<?php echo asset('images/ParetoLight.svg');?>">
+           <form action="/login" method="post">
+             <?php echo csrf_field(); ?>
+
+             <div class="holder holder-r pure-g">
+               <label class="label pure-u-1-3">
+                 <input type="radio" name="user_type">
+                 <span class="label-text">Aluno</span>
+               </label>
+
+               <label class="label pure-u-1-3">
+                 <input type="radio" name="user_type">
+                 <span class="label-text">Professor</span>
+               </label>
+
+               <label class="label pure-u-1-3">
+                 <input type="radio" name="user_type">
+                 <span class="label-text">Escola</span>
+               </label>
+             </div>
+
+
+             <input type="text" name="email" placeholder="seu email...">
+             <input type="password" name="password" placeholder="sua senha...">
+             <input type="password" name="repeat_password" placeholder="repita sua senha...">
+
+             <div class="holder">
+               <p class="pre-input-text">
+                 O identificador da escola será utilizado para que
+                 alunos e professores possam se registrar na escola
+                 devida.
+               </p>
+             </div>
+
+             <input type="text" name="school_id" placeholder="identificador da escola">
+             <input type="submit" value="registrar!">
+
+             <div class="holder">
+               <p class="linker">Já possui um registro? <a href="/login">login</a></p>
+             </div>
+           </form>
+        </div>
       </body>
 
     </html>

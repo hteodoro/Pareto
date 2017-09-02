@@ -1,0 +1,152 @@
+
+@import '_bootstrap';
+
+#back-link {
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  width: 40px;
+  height: 40px;
+}
+
+.container {
+  margin: 60px auto;
+  padding: 25px;
+  width: 50%;
+
+  img {
+    display: block;
+    margin: 0px auto;
+    margin-bottom: 40px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .holder {
+    margin: 0px auto;
+    width: 50%;
+
+    .pre-input-text {
+      margin: 15px;
+      padding: 15px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #484848;
+      line-height: 1.5;
+      opacity: 0.8;
+      text-align: center;
+    }
+  }
+
+  .holder-r {
+    padding-left: 30px;
+  }
+
+  input[type='text'], input[type="password"] {
+    display: block;
+    margin: 25px auto;
+    padding: 15px 20px;
+    width: 50%;
+    border: 2px solid #dad7d4;
+    border-radius: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #484848;
+    opacity: 0.9;
+  }
+
+  input[type="submit"] {
+    outline: 0;
+    border: none;
+    display: block;
+    margin: 40px auto;
+    width: 40%;
+    padding: 15px;
+
+    font-family: 'Montserrat';
+    font-size: 19px;
+    font-weight: 400;
+    color: #FFF;
+    text-align: center;
+    background: #282828;
+    border-radius: 10px;
+  }
+
+  .linker {
+    margin: 15px;
+    padding: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #484848;
+    line-height: 1.5;
+    opacity: 0.8;
+    text-align: left;
+
+    a {
+      color: #28abdb;
+      &:link, &:visited {
+        color: #28abdb;
+      }
+    }
+  }
+
+
+  label {
+   margin: 20px 0px;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 18px;
+   font-weight: 400;
+   display: block;
+   cursor: pointer;
+   color: #484848;
+   opacity: 0.8;
+
+   // Remove the default checkbox
+   input[type="radio"] {
+     display: none;
+
+      + .label-text:before {
+       content: "\f10c";
+       font-family: "FontAwesome";
+       speak: none;
+       font-style: normal;
+       font-weight: normal;
+       font-variant: normal;
+       text-transform: none;
+       line-height: 1;
+       -webkit-font-smoothing: antialiased;
+       width: 1em;
+       display: inline-block;
+       margin-right: 5px;
+     }
+
+     // When the checkbox is checked...
+    &:checked + .label-text:before {
+      content: "\f111";
+      color: #282828;
+      animation: bounce 180ms ease-in;
+    }
+
+   }
+ }
+
+
+ // Bounce the checked checkbox
+ @keyframes bounce {
+   0% {
+     transform: scale(0);
+   }
+
+   90% {
+     transform: scale(1.4);
+   }
+
+   100% {
+     transform: scale(1);
+   }
+ }
+}

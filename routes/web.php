@@ -25,14 +25,14 @@ Route::get('/', function() {
 
 Route::get('/login', function() {
     // TODO: Retornar página de login
-    return "Login Page";
+    return view('login');
 })->name('login');
 
 Route::post('/login', 'Auth@login');
 
 Route::get('/register', function() {
     // TODO: Retornar página de registro
-    return "Register Page";
+    return view('register');
 })->name('register');
 
 Route::post('/register', 'Auth@register');
