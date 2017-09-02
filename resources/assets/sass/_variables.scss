@@ -1,38 +1,25 @@
 
-// Body
-$body-bg: #f5f8fa;
+/*********************
+    PATTERNS
+*********************/
 
-// Borders
-$laravel-border-color: darken($body-bg, 10%);
-$list-group-border: $laravel-border-color;
-$navbar-default-border: $laravel-border-color;
-$panel-default-border: $laravel-border-color;
-$panel-inner-border: $laravel-border-color;
+// Será utilizado '-' para separar nome de variaveis
+// Variaveis de fonte serão por padrão declaradas com o nome da fonte
 
-// Brands
-$brand-primary: #3097D1;
-$brand-info: #8eb4cb;
-$brand-success: #2ab27b;
-$brand-warning: #cbb956;
-$brand-danger: #bf5329;
+/*********************
+    FONTS
+*********************/
 
-// Typography
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 14px;
-$line-height-base: 1.6;
-$text-color: #636b6f;
+$montserrat: 'Montserrat', sans-serif;
+$source-sans-pro: 'Source Sans Pro', sans-serif;
 
-// Navbar
-$navbar-default-bg: #fff;
+/*********************
+    COLORS
+*********************/
 
-// Buttons
-$btn-default-color: $text-color;
-
-// Inputs
-$input-border: lighten($text-color, 40%);
-$input-border-focus: lighten($brand-primary, 25%);
-$input-color-placeholder: lighten($text-color, 30%);
-
-// Panels
-$panel-default-heading-bg: #fff;
+// Usada para logos, icons e background
+$primary: #282828;
+// Usada para textos
+$secondary: #484848;
+// Usada para spans
+$light-blue: #28abdb;

@@ -29,10 +29,10 @@
     .pre-input-text {
       margin: 15px;
       padding: 15px;
-      font-family: 'Montserrat', sans-serif;
+      font-family: $montserrat;
       font-size: 16px;
       font-weight: 400;
-      color: #484848;
+      color: $secondary;
       line-height: 1.5;
       opacity: 0.8;
       text-align: center;
@@ -51,10 +51,10 @@
     border: 2px solid #dad7d4;
     border-radius: 10px;
 
-    font-family: 'Montserrat', sans-serif;
+    font-family: $montserrat;
     font-size: 17px;
     font-weight: 400;
-    color: #484848;
+    color: $secondary;
     opacity: 0.9;
   }
 
@@ -66,30 +66,30 @@
     width: 40%;
     padding: 15px;
 
-    font-family: 'Montserrat';
+    font-family: $montserrat;
     font-size: 19px;
     font-weight: 400;
     color: #FFF;
     text-align: center;
-    background: #282828;
+    background: $primary;
     border-radius: 10px;
   }
 
   .linker {
     margin: 15px;
     padding: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $montserrat;
     font-size: 16px;
     font-weight: 400;
-    color: #484848;
+    color: $secondary;
     line-height: 1.5;
     opacity: 0.8;
     text-align: left;
 
     a {
-      color: #28abdb;
+      color: $light-blue;
       &:link, &:visited {
-        color: #28abdb;
+        color: $light-blue;
       }
     }
   }
@@ -97,12 +97,12 @@
 
   label {
    margin: 20px 0px;
-   font-family: 'Montserrat', sans-serif;
+   font-family: $montserrat;
    font-size: 18px;
    font-weight: 400;
    display: block;
    cursor: pointer;
-   color: #484848;
+   color: $secondary;
    opacity: 0.8;
 
    // Remove the default checkbox
@@ -127,7 +127,7 @@
      // When the checkbox is checked...
     &:checked + .label-text:before {
       content: "\f111";
-      color: #282828;
+      color: $primary;
       animation: bounce 180ms ease-in;
     }
 

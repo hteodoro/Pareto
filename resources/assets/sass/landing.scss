@@ -22,10 +22,10 @@
       padding: 10px;
 
       #logo {
-        font-family: 'Montserrat', sans-serif;
+        font-family: $montserrat;
         font-size: 33px;
         font-weight: 400;
-        color: #484848;
+        color: $secondary;
       }
     }
 
@@ -42,23 +42,23 @@
             display: inline;
             margin: 0px 10px;
             padding: 10px 10px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: $montserrat;
             font-size: 18px;
             font-weight: 400;
-            color: #484848;
+            color: $secondary;
 
             span {
               padding: 18px;
-              background: #383838;
+              background: $primary;
               color: #FFF;
               border-radius: 10px;
             }
 
             a {
-              color: #484848;
+              color: $secondary;
 
               &:link, &:visited {
-                color: #484848;
+                color: $secondary;
               }
 
               &:hover {
@@ -80,7 +80,7 @@
   margin: 0 auto;
   padding: 20px;
   width: 100%;
-  background: #282828;
+  background: $primary;
 
   #presentation-itens {
     margin: 0 auto;
@@ -97,7 +97,7 @@
 
     .presentation-text {
       padding: 15px 30px;
-      font-family: 'Source Sans Pro';
+      font-family: $sourceSansPro;
       font-size: 1.7em;
       font-weight: 400;
       color : #FFF;
@@ -123,20 +123,20 @@
 
       .heading {
         padding: 15px;
-        font-family: 'Montserrat';
+        font-family: $montserrat;
         font-size: 23px;
         font-weight: 400;
-        color: #383838;
+        color: $secondary;
         text-align: center;
         line-height: 1.5;
       }
 
       .text {
         padding: 15px;
-        font-family: 'Source Sans Pro';
+        font-family: $sourceSansPro;
         font-size: 19px;
         font-weight: 400;
-        color: #383838;
+        color: $secondary;
         text-align: center;
         line-height: 1.5;
         opacity: 0.9;
@@ -175,12 +175,12 @@
     margin: 20px auto;
     width: 40%;
     padding: 15px;
-    font-family: 'Montserrat';
+    font-family: $montserrat;
     font-size: 19px;
     font-weight: 400;
     color: #FFF;
     text-align: center;
-    background: #282828;
+    background: $primary;
     border-radius: 10px;
   }
 
@@ -193,11 +193,11 @@
   margin: 0;
   margin-top: 60px;
   padding: 20px;
-  background: #282828;
+  background: $primary;
 
   #copyright {
     padding: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $montserrat;
     font-size: 22px;
     font-weight: 400;
     color: #FFF;
