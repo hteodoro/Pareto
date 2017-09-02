@@ -141,6 +141,8 @@
         line-height: 1.5;
         opacity: 0.9;
       }
+
+
     }
 
   }
@@ -159,6 +161,15 @@
     }
   }
 
+  #caller {
+    a {
+      color: #FFF;
+      &:link, &:visited {
+        color: #FFF;
+      }
+    }
+  }
+
   #caller-button {
     display: block;
     margin: 20px auto;
@@ -171,13 +182,6 @@
     text-align: center;
     background: #282828;
     border-radius: 10px;
-
-    a {
-      color: #FFF;
-      &:link, &:visited {
-        color: #FFF;
-      }
-    }
   }
 
 

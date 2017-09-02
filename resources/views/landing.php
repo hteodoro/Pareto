@@ -72,11 +72,10 @@
 
               <div id="text-holder" class="pure-u-1-2">
                 <p class="text">
-                  awohdoauwhdouawhduoahwoudhawdo
-                  awhdoawhdouawhdouahwdouaw
-                  ahwdoauwhdouawhdouahwdouawhduoahduohawdu
-                  ahwdouawhdouahwdouhawoudhawoudhaowud
-                  awhdoawuhdouawhdouawhdouahwdouhawoduhawdouh
+                  Com a ideia de que aproximadamente 80% dos efeitos vêm de 20%
+                  das causas, a partir de testes realizados pelos alunos em
+                  conhecimentos considerados base, Pareto é capaz de pré determinar
+                  as matérias nas quais os alunos irão possuir dificuldades e adversidades.
                 </p>
               </div>
 
@@ -87,14 +86,13 @@
           <div class="container">
             <h1 class="heading">Junte-se ao pareto!</h1>
             <p class="text">
-              O pareto tem como objetivo identificar os verdadeiros pontos de dificuldades de cada aluno
-              e a partir desses dados, disponibilizar para as escolas e professores de uma forma interativa
-              toda informação que se demonstrar necessária para a verdadeira compreensão de cada aluno em específico
-              ou de cada sala ou grupo em geral. Com o pareto você será capaz de orientar
-              seus alunos de maneira mais efetiva e trabalhar em cima daquilo que realmente representa um problema.
+              Seja você um aluno, professor ou escola, o Pareto possui as soluções necessárias
+              para lhe auxiliar no seu aprendizado ou na efetividade de seu trabalho. Entenda
+              as verdadeiras dificuldades de seus alunos e foque naquilo que realmente dará resultados
+              de desempenho.
             </p>
 
-            <p id="caller-button"><a href="#">Registrar!</a></p>
+            <a href="#"><p id="caller-button">Registrar!</p></a>
           </div>
         </div>
 
