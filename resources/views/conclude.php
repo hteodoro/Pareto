@@ -1,10 +1,10 @@
 
-  <?php
+<?php
     if(session()->has('auth_status')) {
       $message = session('auth_status');
       echo $message;
     }
-  ?>
+?>
 
   <!DOCTYPE html>
     <html>
@@ -12,7 +12,7 @@
         <meta charset="utf-8">
         <!-- Token for csrf protection -->
         <meta name="csrf-token" content="<?php echo csrf_token(); ?>">
-        <title>Pareto - Faça seu login</title>
+        <title>Pareto - Faça seu registro</title>
         <link rel="icon" href="<?php echo asset('images/pareto.png');?>" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo asset('css/normalize.css');?>">
@@ -23,43 +23,33 @@
       </head>
 
       <body>
-          <a href="/"><img id="back-link" title="Página Inicial" src="<?php echo asset('images/left-arrow.svg');?>"></a>
+          <a href="/register"><img id="back-link" title="Página Registro" src="<?php echo asset('images/left-arrow.svg');?>"></a>
 
           <div class="container animated fadeInDown">
           <img class="animated rotateIn" src="<?php echo asset('images/ParetoLight.svg');?>">
-           <form action="/login" method="post">
+           <form action="/register/conclude" method="post" >
              <?php echo csrf_field(); ?>
 
-             <div class="holder holder-r pure-g">
-               <label class="label pure-u-1-3">
-                 <input type="radio" name="user_type">
-                 <span class="label-text">Aluno</span>
-               </label>
-
-               <label class="label pure-u-1-3">
-                 <input type="radio" name="user_type">
-                 <span class="label-text">Professor</span>
-               </label>
-
-               <label class="label pure-u-1-3">
-                 <input type="radio" name="user_type">
-                 <span class="label-text">Escola</span>
-               </label>
-             </div>
-
-
-             <input type="text" name="email" placeholder="seu email...">
-             <input type="password" name="password" placeholder="sua senha...">
-
              <div class="holder">
-               <p class="linker">Esqueceu a senha? <a href="#">Clique aqui</a></p>
+               <p class="pre-input-text">
+                 É necessário que você preencha essas informações
+                 para que seu registro seja concluido.
+               </p>
              </div>
 
-             <input type="submit" value="login!">
+             <?php if($user->getUserType() == 'student') : ?>
+               <input type="text" name="email" placeholder="Seu nome aluno...">
+             <?php endif ?>;
 
-             <div class="holder">
-               <p class="linker">Não possui um registro? <a href="/register">Registre-se</a></p>
-             </div>
+             <?php if($user->getUserType() == 'teacher') : ?>
+               <input type="text" name="email" placeholder="Seu nome professor...">
+             <?php endif ?>;
+
+             <?php if($user->getUserType() == 'school') : ?>
+               <input type="text" name="email" placeholder="Seu nome professor...">
+             <?php endif ?>;
+
+             <input type="submit" value="concluir!">
            </form>
         </div>
       </body>

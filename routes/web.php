@@ -37,12 +37,8 @@ Route::get('/register', function() {
 
 Route::post('/register', 'Auth@register');
 
-Route::get('/register/confirm', function(Request $request) {
-    // TODO: Retornar página de confirmação de registro
-    return "Register Confirm Page";
-})->name('register_confirm');
-
-Route::post('/register/confirm', 'Auth@confirm');
+// Store all the info and create user
+Route::post('/register/conclude', 'Auth@conclude');
 
 /********************************
     APP ROUTES
