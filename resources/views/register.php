@@ -1,11 +1,4 @@
 
-  <?php
-    if(session()->has('auth_status')) {
-      $message = session('auth_status');
-      echo $message;
-    }
-  ?>
-
   <!DOCTYPE html>
     <html>
       <head>
@@ -46,6 +39,16 @@
                  <span class="label-text">Escola</span>
                </label>
              </div>
+
+             <!-- Caso aconteça algum erro de autenticação -->
+
+             <?php if(session()->has('auth_status')) : ?>
+               <div class="holder">
+                 <p class="pre-input-text error">
+                   <?php echo session('auth_status'); ?>
+                 </p>
+               </div>
+             <?php endif; ?>
 
              <input type="text" name="email" placeholder="email para registro...">
              <input type="password" name="password" placeholder="sua senha...">

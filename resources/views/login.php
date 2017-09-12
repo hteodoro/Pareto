@@ -47,6 +47,15 @@
                </label>
              </div>
 
+             <!-- Caso aconteça algum erro de autenticação -->
+
+             <?php if(session()->has('auth_status')) : ?>
+               <div class="holder">
+                 <p class="pre-input-text error">
+                   <?php echo session('auth_status'); ?>
+                 </p>
+               </div>
+             <?php endif; ?>
 
              <input type="text" name="email" placeholder="seu email...">
              <input type="password" name="password" placeholder="sua senha...">

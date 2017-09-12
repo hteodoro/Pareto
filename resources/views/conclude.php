@@ -1,11 +1,4 @@
 
-<?php
-    if(session()->has('auth_status')) {
-      $message = session('auth_status');
-      echo $message;
-    }
-?>
-
   <!DOCTYPE html>
     <html>
       <head>
@@ -29,6 +22,16 @@
           <img class="animated rotateIn" src="<?php echo asset('images/ParetoLight.svg');?>">
            <form action="/register/conclude" method="post" >
              <?php echo csrf_field(); ?>
+
+             <!-- Caso aconteça algum erro de autenticação -->
+
+             <?php if(session()->has('auth_status')) : ?>
+               <div class="holder">
+                 <p class="pre-input-text error">
+                   <?php echo session('auth_status'); ?>
+                 </p>
+               </div>
+             <?php endif; ?>
 
              <div class="holder">
                <p class="pre-input-text">
