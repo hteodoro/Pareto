@@ -18,34 +18,35 @@ class Auth extends Controller {
       $requests = $request->all();
 
       foreach($requests as $value) {
-        if(empty($value)) {
-          return $this->flashSession('auth_status', 'Preencha todos os campos...', 'login');
+        if(empty($value) || !isset($request->user_type)) {
+          return redirect('login')->with('auth_status', 'Preencha todos os campos...');
         }
       }
 
+      $user_type = $request->user_type;
       $email = strtolower($request->email);
       $password = $request->password;
 
-
-      $user_result = $this->getUser($email, 'email');
+      $user_result = $this->getUser($email, $user_type);
 
       if(!empty($user_result)) {
         foreach($user_result as $user) {
-          if(Hash::check($password, $user->senha)) {
-            return "Bem vindo $user->nome!";
-            //TODO: Redirecionar para a Home page
+
+          // TODO: Utilizar Hash:check() para comparar senhas com hash
+          if($password == $user->senha) {
+            return $this->buildSessions($user, $user_type);
           }
 
           else {
             // Redirecionando para página de login caso senha esteja errada
-            return $this->flashSession('auth_status', 'A senha está errada...', 'login');
+            return redirect('login')->with('auth_status', 'Sua senha está errada...');
           }
         }
       }
 
       else {
         // Redirecionando para página de login caso usuário não exista
-        return $this->flashSession('auth_status', 'Esse usuário não existe...', 'login');
+        return redirect('login')->with('auth_status', 'Não existe nenhum usuário com esse email.');
       }
 
     }
@@ -112,7 +113,7 @@ class Auth extends Controller {
 
 
     public function conclude(Request $request) {
-      
+
     }
 
 
@@ -136,6 +137,40 @@ class Auth extends Controller {
         return true;
       } else {
         return false;
+      }
+    }
+
+
+    public function buildSessions($user, $user_type) {
+      switch($user_type) {
+        case 'student':
+
+          session([
+            'id' => $user->id,
+            'class_id' => $user->sala_id,
+            'escola_id' => $user->escola_id
+          ]);
+
+          return redirect('/app/test');
+          break;
+
+        case 'teacher':
+
+          session([
+            'id' => $user->id,
+            'escola_id' => $user->escola_id
+          ]);
+
+          return redirect('app/classes');
+          break;
+
+        case 'school':
+
+          session([
+            'id' => $user->id,
+          ]);
+
+          return redirect('app/classes');
       }
     }
 

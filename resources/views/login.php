@@ -1,11 +1,4 @@
 
-  <?php
-    if(session()->has('auth_status')) {
-      $message = session('auth_status');
-      echo $message;
-    }
-  ?>
-
   <!DOCTYPE html>
     <html>
       <head>
@@ -32,17 +25,17 @@
 
              <div class="holder holder-r pure-g">
                <label class="label pure-u-1-3">
-                 <input type="radio" name="user_type">
+                 <input type="radio" name="user_type" value="student">
                  <span class="label-text">Aluno</span>
                </label>
 
                <label class="label pure-u-1-3">
-                 <input type="radio" name="user_type">
+                 <input type="radio" name="user_type" value="teacher">
                  <span class="label-text">Professor</span>
                </label>
 
                <label class="label pure-u-1-3">
-                 <input type="radio" name="user_type">
+                 <input type="radio" name="user_type" value="school">
                  <span class="label-text">Escola</span>
                </label>
              </div>
