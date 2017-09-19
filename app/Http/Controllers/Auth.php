@@ -113,6 +113,54 @@ class Auth extends Controller {
 
 
     public function conclude(Request $request) {
+      $requests = $request->all();
+
+      foreach($requests as $value) {
+        if(empty($value)) {
+          return redirect('/register')->with('auth_status', 'Preencha todos os campos de conclusão...');
+        }
+      }
+
+      // Getting name (student, teacher or school) from the request
+      $name = $request->name;
+      // Getting the user type from the request
+      $user_type = $request->user_type;
+      // Getting the email from the request
+      $email = $request->email;
+      // Getting the hashed password from the reques
+      $password = $request->password;
+      // Getting the school id from the request
+      $school_id = $request->school_id;
+
+      echo "$name $user_type $email $password $school_id ";
+
+      if($user_type == 'school') {
+        // Getting the name of the first class created by the school
+        $first_class = $request->first_class;
+        echo "$first_class";
+      }
+
+      // TODO: Store all users
+
+      switch($user_type) {
+        case 'student':
+          // TODO: get the school id
+          // TODO: store new student
+          // TODO: query the same student by email
+          // TODO: call buildSessions with info needed
+          break;
+        case 'teacher':
+          // TODO: get the school id
+          // TODO: store new teacher
+          // TODO: query the same teacher by email
+          // TODO: call buildSessions with info needed
+          break;
+        case 'school':
+          // TODO: store new school
+          // TODO: query the same school by email
+          // TODO: store a new class with the class name provided in the request
+          // TODO: call buildSessions with info needed
+      }
 
     }
 

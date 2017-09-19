@@ -2,7 +2,6 @@
   namespace App\Objects;
 
   class User {
-
     // Variables to store info
     private $email;
     private $password;
@@ -25,7 +24,7 @@
       return $this->password;
     }
 
-    public function getUserType() {
+    public function getType() {
       return $this->user_type;
     }
 

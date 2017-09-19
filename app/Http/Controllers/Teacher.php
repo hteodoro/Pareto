@@ -22,15 +22,15 @@ class Teacher extends Controller {
     }
   }
 
-  public function store() {
+  public static function store() {
 
   }
 
-  public function update() {
+  public static function update() {
 
   }
 
-  public function delete() {
+  public static function delete() {
 
   }
 }
