@@ -46,11 +46,6 @@ Route::post('/register/conclude', 'Auth@conclude');
 
 Route::prefix('/app')->group(function() {
 
-  Route::get('/home', function() {
-    // TODO: Retornar Home Page
-    return "Home Page";
-  })->name('home');
-
   Route::get('/test', function() {
     // TODO: Retornar página de teste
     return "Test Page";
@@ -60,6 +55,11 @@ Route::prefix('/app')->group(function() {
     // TODO: Retornar página com lista de alunos
     return "Students Page";
   })->name('students');
+
+  Route::get('/teachers', function() {
+    // TODO: Retornar página com lista de professores (Especifico para escolas)
+    return "Teachers Page";
+  })->name('teachers');
 
   Route::get('/classes', function() {
     // TODO: Retornar página com lista de salas
@@ -73,20 +73,12 @@ Route::prefix('/app')->group(function() {
 ********************************/
 
 Route::prefix('/app/classes')->group(function() {
-
-  Route::get('/add', function() {
-    // TODO: Retornar página para adicionar sala
-    return "Add Class Page";
-  })->name('add_class');
-
-  Route::get('/update', function() {
-    // TODO: Retornar página para atualizar sala
-    return "Update Class Page";
-  })->name('update_class');
-
+  // Create new class
   Route::post('/add', 'Class@store');
-  Route::post('/update', 'Class@update');
-
+  // Update an existent class
+  Route::put('/update', 'Class@update');
+  // Delete a class
+  Route::delete('/delete', 'Class@delete');
 });
 
 /********************************
