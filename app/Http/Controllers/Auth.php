@@ -145,14 +145,21 @@ class Auth extends Controller {
           // TODO: store new student
           // TODO: query the same student by email
           // TODO: call buildSessions with info needed
+          // Break the loop
           break;
         case 'teacher':
-          // TODO: store new teacher
-          // TODO: query the same teacher by email
-          // TODO: call buildSessions with info needed
+          // Storing a new teacher
+          Teacher::store($name, $email, $password, $school_id);
+          // Querying the same teacher by email
+          $user = Teacher::show($email, 'email');
+          // Calling buildSessions with info needed
+          foreach($user as $teacher) {
+            return $this->buildSessions($teacher, $user_type);
+          }
+          // Break the loop
           break;
         case 'school':
-          // Storing new school
+          // Storing a new school
           School::store($name, $email, $password, $school_id);
           // Querying the same school by email
           $user = School::show($email, 'email');
