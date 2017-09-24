@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Student;
 use App\Http\Controllers\Teacher;
 use App\Http\Controllers\School;
+use App\Http\Controllers\SchoolClass;
 
 use App\Objects\User;
 
@@ -79,7 +80,7 @@ class Auth extends Controller {
       // Checking whether the user already exists or not
       if(empty($user)) {
         // Checking the school identifier
-        $id_exists = $this->checkSchoolId($school_id, $user_type);
+        $id_exists = $this->checkSchoolId($school_id);
 
         // Redirect if the user is a school and the identifier already exists
         if($user_type == 'school' && $id_exists) {
@@ -132,34 +133,41 @@ class Auth extends Controller {
       // Getting the school id from the request
       $school_id = $request->school_id;
 
-      echo "$name $user_type $email $password $school_id ";
-
       if($user_type == 'school') {
         // Getting the name of the first class created by the school
         $first_class = $request->first_class;
-        echo "$first_class";
       }
 
       // TODO: Store all users
 
       switch($user_type) {
         case 'student':
-          // TODO: get the school id
           // TODO: store new student
           // TODO: query the same student by email
           // TODO: call buildSessions with info needed
           break;
         case 'teacher':
-          // TODO: get the school id
           // TODO: store new teacher
           // TODO: query the same teacher by email
           // TODO: call buildSessions with info needed
           break;
         case 'school':
-          // TODO: store new school
-          // TODO: query the same school by email
-          // TODO: store a new class with the class name provided in the request
-          // TODO: call buildSessions with info needed
+          // Storing new school
+          School::store($name, $email, $password, $school_id);
+          // Querying the same school by email
+          $user = School::show($email, 'email');
+          // Defining the school primary key (id)
+          $id = null;
+          // Getting the value of the school primary key (id)
+          foreach($user as $school) {
+            // Storing value to the variable
+            $id = $school->id;
+            // Storing a new class with the class name provided in the request and the school primary key (id)
+            SchoolClass::store($first_class, $id);
+            // Calling buildSessions with info needed
+            return $this->buildSessions($school, $user_type);
+          }
+
       }
 
     }
@@ -178,7 +186,7 @@ class Auth extends Controller {
       }
     }
 
-    public function checkSchoolId($id, $user_type) {
+    public function checkSchoolId($id) {
       // Checking if exists any school with this identifier
       $result = School::show($id, 'identifier');
       if(!empty($result)) {

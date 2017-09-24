@@ -28,7 +28,7 @@
               <!-- <li class="nav-list-item"><a href="#">soluções</a></li> -->
               <li class="nav-list-item"><a href="#">contato</a></li>
               <li class="nav-list-item"><a href="/login">login</a></li>
-              <li class="nav-list-item"><a href="/register"><span>registrar</span></a></li>
+              <li class="nav-list-item"><a href="/register">registrar</a></li>
             </ul>
           </div>
 

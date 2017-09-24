@@ -1,6 +1,9 @@
 <?php
   namespace App\Objects;
 
+  use Illuminate\Support\Facades\DB;
+  use App\Http\Controllers\School;
+
   class User {
     // Variables to store info
     private $email;
@@ -29,7 +32,19 @@
     }
 
     public function getSchoolId() {
-      return $this->school_id;
+      if($this->getType() == 'student' || $this->getType() == 'teacher') {
+        // Querying school by identifier and return the id
+        $result = DB::select("SELECT id FROM escolas WHERE identificador = :identifier", ['identifier' => $this->school_id]);
+        // Returning all values of id that were found
+        foreach($result as $id_value) {
+          return $id_value->id;
+        }
+
+      } elseif($this->getType() == 'school') {
+        // Return the school identifier
+        return $this->school_id;
+      }
+
     }
   }
 
