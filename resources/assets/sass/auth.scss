@@ -84,6 +84,22 @@
     text-align: center;
     background: $primary;
     border-radius: 10px;
+    cursor: pointer;
+  }
+
+  select {
+    display: block;
+    margin: 25px auto;
+    padding: 15px 20px;
+    width: 50%;
+    border: 2px solid #dad7d4;
+    border-radius: 10px;
+
+    font-family: $montserrat;
+    font-size: 17px;
+    font-weight: 400;
+    color: $secondary;
+    opacity: 0.9;
   }
 
   .linker {

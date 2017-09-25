@@ -96,7 +96,15 @@ class Auth extends Controller {
           // Create a User Object with all the info
           $user = new User($email, Hash::make($password), $user_type, $school_id);
           // Redirect to register/conclude with all info
-          return view('conclude', ['user' => $user]);
+          // If it is student, return user info + classes of the same school
+          if($user_type == 'student') {
+            $classes = SchoolClass::show($user->getSchoolId(), 'school_id');
+            return view('conclude', ['user' => $user, 'classes' => $classes]);
+          }
+          // If not student, return only user info
+          else {
+            return view('conclude', ['user' => $user]);
+          }
         }
 
         else {
@@ -133,6 +141,10 @@ class Auth extends Controller {
       // Getting the school id from the request
       $school_id = $request->school_id;
 
+      if($user_type == 'student') {
+        $class_id = $request->class;
+      }
+
       if($user_type == 'school') {
         // Getting the name of the first class created by the school
         $first_class = $request->first_class;
@@ -142,9 +154,14 @@ class Auth extends Controller {
 
       switch($user_type) {
         case 'student':
-          // TODO: store new student
-          // TODO: query the same student by email
-          // TODO: call buildSessions with info needed
+          // Storing a new student
+          Student::store($name, $email, $password, $class_id, $school_id);
+          // Querying the same student by email
+          $user = Student::show($email, 'email');
+          // Calling buildSessions with info needed
+          foreach($user as $student) {
+            return $this->buildSessions($student, $user_type);
+          }
           // Break the loop
           break;
         case 'teacher':

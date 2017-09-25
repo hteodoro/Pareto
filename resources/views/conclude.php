@@ -29,7 +29,6 @@
              <input type="hidden" name="school_id" value="<?php echo $user->getSchoolId() ?>">
 
              <!-- Caso aconteça algum erro de autenticação -->
-
              <?php if(session()->has('auth_status')) : ?>
                <div class="holder">
                  <p class="pre-input-text error">
@@ -47,6 +46,13 @@
                </div>
 
                <input type="text" name="name" placeholder="Insira seu nome...">
+               <!-- Class selection -->
+               <select name="class">
+                 <?php foreach($classes as $class) : ?>
+                   <!-- loop through all the classes registered in the same school -->
+                   <option value="<?php echo $class->id; ?>"><?php echo $class->nome; ?></option>
+                 <?php endforeach; ?>
+               </select>
              <?php endif; ?>
 
              <?php if($user->getType() == 'teacher') : ?>

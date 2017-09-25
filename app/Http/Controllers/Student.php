@@ -23,8 +23,11 @@ class Student extends Controller {
     }
   }
 
-  public static function store() {
-
+  public static function store($name, $email, $password, $class_id, $school_id) {
+    DB::insert(
+      'INSERT INTO alunos (nome, email, senha, sala_id, escola_id) VALUES (:name, :email, :password, :class_id, :school_id)',
+      ['name' => $name, 'email' => $email, 'password' => $password, 'class_id' => $class_id, 'school_id' => $school_id]
+    );
   }
 
   public static function update() {
