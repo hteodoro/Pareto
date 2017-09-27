@@ -7,7 +7,7 @@ const rename = require('gulp-rename');
 
 gulp.task('compile', function() {
     // Tarefa realizada pelo gulp
-    const stream = gulp.src('resources/assets/sass/*.scss')
+    const stream = gulp.src('resources/assets/sass/**/*.scss')
     // Iniciar a construção de sourcemaps
     .pipe(sourcemaps.init())
       // Compilar Sass para CSS

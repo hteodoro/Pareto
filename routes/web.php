@@ -51,6 +51,10 @@ Route::prefix('/app')->group(function() {
     return "Test Page";
   })->name('test');
 
+  Route::get('/test/do', function() {
+    return view('dotest');
+  })->name('doTest');
+
   Route::get('/students', function() {
     // TODO: Retornar página com lista de alunos
     return "Students Page";
