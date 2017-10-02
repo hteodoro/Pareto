@@ -25,7 +25,7 @@
           <input id="answer-input" type="text" name="answer" placeholder="Responda a questão...">
         </div>
 
-        <div id="marker-container" class="section animated fadeInUp">
+        <div id="marker-container" class="section animated fadeIn">
           <!-- Irá conter os marcadores de questões corretas e erradas -->
           <div class="holder">
             <ul id="marker-list">
@@ -36,10 +36,15 @@
           </div>
         </div>
 
-        <div id="steps-container" class="side-section animated fadeIn">
-          <!-- Irá conter o menu lateral com todos conhecimentos -->
-        </div>
+      </div>
 
+      <div id="steps-container" class="side-section animated fadeInLeft">
+        <h1 id="logo">Pareto</h1>
+        <ul id="steps-list">
+          <li class="steps">Multiplicação</li>
+          <li class="steps">Divisão</li>
+          <li class="steps">Operação com frações</li>
+        </ul>
       </div>
 
     </body>

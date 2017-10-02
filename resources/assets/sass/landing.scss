@@ -93,6 +93,11 @@
       height: 185px;
       margin: 20px auto;
       padding: 15px;
+
+      @media screen and (max-width: 1366px) {
+        width: 175px;
+        height: 175px;
+      }
     }
 
     .presentation-text {
@@ -103,6 +108,15 @@
       color : #FFF;
       line-height: 1.7;
       text-align: center;
+
+      @media screen and (max-width: 1366px) {
+        font-size: 1.5em;
+      }
+
+    }
+
+    @media screen and (max-width: 1366px) {
+      width: 60%;
     }
 
   }
@@ -129,6 +143,10 @@
         color: $secondary;
         text-align: center;
         line-height: 1.5;
+
+        @media screen and (max-width: 1366px) {
+          font-size: 21px;
+        }
       }
 
       .text {
@@ -140,9 +158,19 @@
         text-align: center;
         line-height: 1.5;
         opacity: 0.9;
+
+        @media screen and (max-width: 1366px) {
+          font-size: 17px;
+        }
       }
 
+      @media screen and (max-width: 1366px) {
+        width: 55%;
+      }
+    }
 
+    @media screen and (max-width: 1366px) {
+      margin: 35px auto;
     }
 
   }
