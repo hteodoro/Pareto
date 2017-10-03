@@ -39,11 +39,19 @@
     text-align: center;
   }
 
+  #input-holder {
+    margin: 0px;
+    padding: 0;
+    text-align: center;
+
+    li {
+      display: inline;
+    }
+  }
 
   #answer-input {
-    display: block;
-    margin: 100px auto;
-    padding: 30px 20px;
+    margin: 20px;
+    padding:20px;
     border: 3px solid #dad7d4;
     border-radius: 10px;
 
@@ -61,6 +69,18 @@
 
   }
 
+  #submit-answer {
+    margin: 20px;
+    padding: 12px 25px;
+    font-family: $montserrat;
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    background: $light-blue;
+  }
+
 }
 
 #marker-container {
@@ -70,7 +90,7 @@
     padding: 20px;
 
     #marker-list {
-      margin: 20px;
+      margin: 0;
       padding: 0;
       text-align: center;
 
@@ -121,14 +141,14 @@
 
 
   #steps-list {
-    margin: 30px auto;
-    padding: 20px 0px;
+    margin: 15px auto;
+    padding: 15px 0px;
 
     .steps {
       margin: 20px 0px;
-      padding: 20px 20px;
+      padding: 15px 15px;
       font-family: $montserrat;
-      font-size: 19px;
+      font-size: 17px;
       font-weight: 400;
       line-height: 1.4;
       color: #FFF;

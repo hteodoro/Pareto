@@ -175,6 +175,13 @@
 
   }
 
+  .first {
+    @media screen and (max-width: 1366px) {
+      margin: 10px auto;
+      padding: 10px;
+    }
+  }
+
   #research {
     .container {
       width: 60%;

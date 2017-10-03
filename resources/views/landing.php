@@ -46,7 +46,7 @@
       </div>
 
       <div id="wrapper">
-        <div class="section animated fadeIn">
+        <div class="first section animated fadeIn">
           <div class="container">
 
             <h1 class="heading">Como o Pareto pode ajudar sua escola,

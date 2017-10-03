@@ -22,7 +22,12 @@
           <!-- Irá conter a questão e input de resposta -->
           <p class="container-text">Calcule o resultado da sequinte questão:</p>
           <p class="question">(3 x 4) + (5 x 2)</p>
-          <input id="answer-input" type="text" name="answer" placeholder="Responda a questão...">
+
+          <ul id="input-holder">
+            <li><input id="answer-input" type="text" name="answer" placeholder="Responda a questão..."></li>
+            <li><input id="submit-answer" type="submit" value="OK!"/></li>
+          </ul>
+
         </div>
 
         <div id="marker-container" class="section animated fadeIn">
@@ -41,9 +46,13 @@
       <div id="steps-container" class="side-section animated fadeInLeft">
         <h1 id="logo">Pareto</h1>
         <ul id="steps-list">
-          <li class="steps">Multiplicação</li>
-          <li class="steps">Divisão</li>
+          <li class="steps">Operações básicas</li>
           <li class="steps">Operação com frações</li>
+          <li class="steps">Potenciação</li>
+          <li class="steps">Potencia de 10</li>
+          <li class="steps">Radicais</li>
+          <li class="steps">Produtos Notáveis</li>
+          <li class="steps">Funções</li>
         </ul>
       </div>
 
