@@ -1,0 +1,123 @@
+
+@import '_bootstrap';
+
+#side-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  background: #282828;
+
+  .logo {
+    margin: 20px;
+    padding: 20px;
+    font-family: $montserrat;
+    font-size: 27px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    text-align: center;
+    color: #FFF;
+  }
+
+  .list {
+    display: block;
+    margin: 100px auto;
+    padding: 0;
+
+    .item {
+      margin: 20px;
+      padding: 20px;
+      padding-bottom: 40px;
+      font-family: $montserrat;
+      font-size: 19px;
+      font-weight: 400;
+      text-align: left;
+      color: #FFF;
+      opacity: 0.6;
+      border-bottom: 1px solid #3d4657;
+
+      &:hover {
+        opacity: 1.0;
+      }
+
+    }
+
+    .test {
+      &::before {
+        content: "\f040";
+        font-size: 19px;
+        padding: 20px;
+        font-family: "FontAwesome";
+      }
+    }
+
+    .map {
+      &::before {
+        content: "\f080";
+        font-size: 19px;
+        padding: 20px;
+        font-family: "FontAwesome";
+      }
+    }
+
+    .perfil {
+      &::before {
+        content: "\f007";
+        font-size: 19px;
+        padding: 20px;
+        font-family: "FontAwesome";
+      }
+    }
+
+  }
+
+}
+
+#wrapper {
+  margin: 0 auto;
+  margin-left: 300px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  width: 50%;
+}
+
+.section {
+  margin: 40px auto;
+  padding: 20px;
+
+  .section-img {
+    display: block;
+    margin: 60px auto;
+    width: 165px;
+    height: 165px;
+    text-align: center;
+  }
+
+  .section-text {
+    font-family: $montserrat;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    color: $secondary;
+  }
+
+  .section-link {
+    display: block;
+    margin: 50px auto;
+    padding: 20px;
+    width: 45%;
+    font-family: $montserrat;
+    font-size: 19px;
+    font-weight: 400;
+    text-align: center;
+    color: #FFF;
+    background: $primary;
+    border: none;
+    border-radius: 10px;
+  }
+}

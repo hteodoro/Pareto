@@ -48,7 +48,7 @@ Route::prefix('/app')->group(function() {
 
   Route::get('/test', function() {
     // TODO: Retornar página de teste
-    return "Test Page";
+    return view('test');
   })->name('test');
 
   Route::get('/test/do', function() {

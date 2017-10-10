@@ -43,18 +43,6 @@
 
       </div>
 
-      <div id="steps-container" class="side-section animated fadeInLeft">
-        <h1 id="logo">Pareto</h1>
-        <ul id="steps-list">
-          <li class="steps">Operações básicas</li>
-          <li class="steps">Operação com frações</li>
-          <li class="steps">Potenciação</li>
-          <li class="steps">Potencia de 10</li>
-          <li class="steps">Radicais</li>
-          <li class="steps">Produtos Notáveis</li>
-          <li class="steps">Funções</li>
-        </ul>
-      </div>
 
     </body>
 
