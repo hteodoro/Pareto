@@ -25,7 +25,7 @@
           <input id="answer-input" type="text" name="answer" placeholder="Responda a questão...">
         </div>
 
-        <div id="marker-container" class="section animated fadeInUp">
+        <div id="marker-container" class="section animated fadeInLeft">
           <!-- Irá conter os marcadores de questões corretas e erradas -->
           <div class="holder">
             <ul id="marker-list">
