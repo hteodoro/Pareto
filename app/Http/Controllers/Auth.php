@@ -33,8 +33,7 @@ class Auth extends Controller {
       if(!empty($user_result)) {
         foreach($user_result as $user) {
 
-          // TODO: Utilizar Hash:check() para comparar senhas com hash
-          if($password == $user->senha) {
+          if(Hash::check($password, $user->senha)) {
             return $this->buildSessions($user, $user_type);
           }
 
@@ -49,6 +48,11 @@ class Auth extends Controller {
         // Redirecionando para página de login caso usuário não exista
         return redirect('login')->with('auth_status', 'Não existe nenhum usuário com esse email.');
       }
+
+    }
+
+
+    public function logout(Request $request) {
 
     }
 
