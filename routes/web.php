@@ -40,6 +40,9 @@ Route::post('/register', 'Auth@register');
 // Store all the info and create user
 Route::post('/register/conclude', 'Auth@conclude');
 
+// Do User logout
+Route::get('/logout', 'Auth@logout');
+
 /********************************
     APP ROUTES
 ********************************/

@@ -20,6 +20,7 @@
       <div id="wrapper">
         <div id="question-container" class="section animated fadeInDown">
           <!-- Irá conter a questão e input de resposta -->
+          <p class="subject">Multiplicação</p>
           <p class="container-text">Calcule o resultado da sequinte questão:</p>
           <p class="question">(3 x 4) + (5 x 2)</p>
 

@@ -34,11 +34,17 @@
       font-weight: 400;
       text-align: left;
       color: #FFF;
-      opacity: 0.6;
       border-bottom: 1px solid #3d4657;
 
-      &:hover {
-        opacity: 1.0;
+      a {
+        &:link, &:visited {
+          color: #FFF;
+          opacity: 0.6;
+        }
+
+        &:hover {
+          opacity: 1.0;
+        }
       }
 
     }
@@ -70,6 +76,16 @@
       }
     }
 
+    .logout {
+      &::before {
+        // content: "\f08b"; Sign-out
+        content: "\f060"; // Arrow Left
+        font-size: 19px;
+        padding: 20px;
+        font-family: "FontAwesome";
+      }
+    }
+
   }
 
 }
@@ -82,7 +98,7 @@
 .container {
   margin: 0 auto;
   padding: 0;
-  width: 50%;
+  width: 40%;
 }
 
 .section {
@@ -98,10 +114,11 @@
   }
 
   .section-text {
-    font-family: $montserrat;
-    font-size: 19px;
+    font-family: $source-sans-pro;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
+    letter-spacing: 1px;
     text-align: center;
     color: $secondary;
   }
@@ -120,4 +137,5 @@
     border: none;
     border-radius: 10px;
   }
+
 }

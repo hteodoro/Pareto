@@ -19,22 +19,24 @@
       <div id="side-menu">
         <!-- TODO: Trocar por imagem -->
         <h1 class="logo">Pareto</h1>
+        <!-- /////////////////////// -->
         <ul class="list">
-          <li class="item test">Testes</li>
-          <li class="item map">Mapa</li>
-          <li class="item perfil">Perfil</li>
+          <li class="item test"><a href="/app/test/">Testes</a></li>
+          <li class="item map"><a href="#">Mapa</a></li>
+          <li class="item perfil"><a href="#">Perfil</a></li>
+          <li class="item bottom logout"><a href="/logout">Logout</a></li>
         </ul>
       </div>
 
       <div id="wrapper">
-        <div class="section container">
+        <div class="section container animated fadeIn">
           <img class="section-img" src="<?php echo asset('images/ParetoLight.svg'); ?>">
           <p class="section-text">
-            ashdouhaowudhaowuhdouashouasdohasoduh
-            awhdoawuhdouahwdouahsoudhaowhdoawuhdoauwdh
-            hawdouawhdouahwdouhawdouhawdouhawdoh
+            Realize os testes 80/20 para que sua escola e professores
+            tenham a informação de onde estão suas verdadeiras dificuldades
+            na disciplina de matemática!
           </p>
-          <button class="section-link">Iniciar teste!</button>
+          <a href="/app/test/do"><button class="section-link">Iniciar teste!</button></a>
         </div>
       </div>
 
