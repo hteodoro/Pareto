@@ -53,7 +53,10 @@ class Auth extends Controller {
 
 
     public function logout(Request $request) {
-
+      // Cleaning sessions
+      $request->session()->flush();
+      // Redirecting to login Page
+      return redirect('login');
     }
 
 
