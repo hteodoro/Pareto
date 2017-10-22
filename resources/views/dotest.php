@@ -20,9 +20,15 @@
       <div id="wrapper">
         <div id="question-container" class="section animated fadeInDown">
           <!-- Irá conter a questão e input de resposta -->
-          <p class="subject">Multiplicação</p>
+          <div id="subject-holder">
+            <!-- <p class="subject">Multiplicação</p> -->
+          </div>
+
           <p class="container-text">Calcule o resultado da sequinte questão:</p>
-          <p class="question">(3 x 4) + (5 x 2)</p>
+
+          <div id="question-holder">
+            <!-- <p class="question">(3 x 4) + (5 x 2)</p> -->
+          </div>
 
           <ul id="input-holder">
             <li><input id="answer-input" type="text" name="answer" placeholder="Responda a questão..."></li>
@@ -44,7 +50,8 @@
 
       </div>
 
-
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="<?php echo asset('dist/app.bundle.js');?>"></script>
     </body>
 
   </html>

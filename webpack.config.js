@@ -1,6 +1,6 @@
 
 module.exports = {
-  entry: './public/js/app.jsx',
+  entry: './public/js/test-script.jsx',
   output: {
     filename: './public/dist/app.bundle.js'
   },
