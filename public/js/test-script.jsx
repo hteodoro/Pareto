@@ -4,25 +4,54 @@ import ReactDOM from 'react-dom';
 
 // Defining the atual question level
 let question_level = 1;
+// Defining the atual subject index
+let subject_marker = 0;
 // Counting errors in the same level
 let errors = 0;
 // User performance
 let performance = 0;
 // Answer of the atual question
 let question_answer = "";
+// Array with all the subject's names
+let subjects = [
+    "Multiplicação",
+    "Outro1",
+    "Outro2"
+];
+// Array with the user performance in every subject
+let subjectPerformance = {
+    "Multiplicação": 0,
+    "Outro1": 0,
+    "Outro2": 0
+};
 
 // Array de Questões de Multiplicação
 let multiply = [
     ["(3 x 4) + (5 x 2)", "3", "Multiplicação", 1],
 
-
     ["7 x 8 + (5 x 5 + 4 - 2)", "4", "Multiplicação", 2],
-
 
     ["(5 x 6) - 2 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Multiplicação", 3],
 
+    ["(6 x 6) - 7 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Multiplicação", 4],
 
-    ["(6 x 6) - 7 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Multiplicação", 4]
+    ["(3 x 4) + (5 x 2)", "3", "Multiplicação", 4],
+
+    ["(3 x 4) + (5 x 2)", "3", "Outro1", 1],
+
+    ["7 x 8 + (5 x 5 + 4 - 2)", "4", "Outro1", 2],
+
+    ["(5 x 6) - 2 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Outro1", 3],
+
+    ["(6 x 6) - 7 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Outro1", 4],
+
+    ["(3 x 4) + (5 x 2)", "3", "Outro2", 1],
+
+    ["7 x 8 + (5 x 5 + 4 - 2)", "4", "Outro2", 2],
+
+    ["(5 x 6) - 2 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Outro2", 3],
+
+    ["(6 x 6) - 7 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Outro2", 4]
 ];
 
 function loadQuestion() {
@@ -32,7 +61,7 @@ function loadQuestion() {
   do {
     // Getting a random number that matches a same level question in the array
     random = Math.floor((Math.random() * multiply.length - 1) + 1);
-  } while(multiply[random][3] != question_level);
+  } while(multiply[random][3] != question_level || multiply[random][2] != subjects[subject_marker]);
 
   let dificulty = "";
 
@@ -89,7 +118,23 @@ $("#submit-answer").on('click', function() {
       // Loading another question
       loadQuestion();
     } else {
-      savePerformance();
+      if(subject_marker == (subjects.length - 1)) {
+        // If the user answer questions of all the subjects, save the performance
+        savePerformance();
+      } else {
+        // Reseting question level
+        question_level = 1;
+        // Get the subject name to access the subjectPerformance values
+        let subjectName = subjects[subject_marker];
+        // Adding the user performance to the respective subject in the subjectPerformance array
+        subjectPerformance[subjectName] += performance;
+        // Adding to the subject marker to chance the question's subject
+        subject_marker += 1;
+        // Reseting performance
+        performance = 0;
+        // Reloading another question with a different subject
+        loadQuestion();
+      }
     }
 
   }
@@ -107,8 +152,25 @@ $("#submit-answer").on('click', function() {
     }
     // If it is the second error
     else {
-      // TODO:: Save performance
-      savePerformance();
+      if(subject_marker == (subjects.length - 1)) {
+        // If the user answer questions of all the subjects, save the performance
+        savePerformance();
+      } else {
+        // Resetin errors
+        errors = 0;
+        // Reseting question level
+        question_level = 1;
+        // Get the subject name to access the subjectPerformance values
+        let subjectName = subjects[subject_marker];
+        // Adding the user performance to the respective subject in the subjectPerformance array
+        subjectPerformance[subjectName] += performance;
+        // Adding to the subject marker to chance the question's subject
+        subject_marker += 1;
+        // Reseting performance
+        performance = 0;
+        // Reloading another question with a different subject
+        loadQuestion();
+      }
     }
   }
 
@@ -116,11 +178,12 @@ $("#submit-answer").on('click', function() {
 
 
 function loadMarkers() {
-  
+
 }
 
 
 function savePerformance() {
   // TODO: Make a Request with the values
-  alert(performance);
+  let subjectName = subjects[0];
+  alert(subjectPerformance[subjectName]);
 }
