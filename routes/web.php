@@ -52,11 +52,11 @@ Route::prefix('/app')->group(function() {
   Route::get('/test', function() {
     // TODO: Retornar página de teste
     return view('test');
-  })->name('test')->middleware('check_auth');
+  })->name('test');
 
   Route::get('/test/do', function() {
     return view('dotest');
-  })->name('doTest')->middleware('check_auth');
+  })->name('doTest');
 
   Route::get('/students', function() {
     // TODO: Retornar página com lista de alunos
