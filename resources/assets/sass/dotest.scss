@@ -48,6 +48,10 @@
     font-weight: 400;
     color: $light-blue;
     text-align: center;
+
+    @media screen and (max-width: 1367px) {
+      margin: 15px;
+    }
   }
 
   #input-holder {
@@ -72,7 +76,7 @@
     color: $secondary;
     opacity: 0.9;
 
-    @media screen and (max-width: 1366px) {
+    @media screen and (max-width: 1367px) {
       margin: 50px auto;
       padding: 15px 20px;
       font-size: 21px;
@@ -91,7 +95,7 @@
     border-radius: 5px;
     background: $light-blue;
 
-    @media screen and (max-width: 1366px) {
+    @media screen and (max-width: 1367px) {
       margin: 15px;
       padding: 12px 25px;
     }
@@ -129,7 +133,7 @@
 
     }
 
-    @media screen and (max-width: 1366px) {
+    @media screen and (max-width: 1367px) {
       margin: 40px auto;
     }
 
@@ -142,7 +146,8 @@
   margin: 50px auto;
   padding: 20px;
 
-  @media screen and (max-width: 1366px) {
-    margin: 30px auto;
+  @media screen and (max-width: 1367px) {
+    margin: 0px auto;
+    margin-bottom: 0px;
   }
 }

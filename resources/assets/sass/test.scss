@@ -47,6 +47,11 @@
         }
       }
 
+      @media screen and (max-width: 1367px) {
+        margin: 10px;
+        border-bottom: none;
+      }
+
     }
 
     .test {
@@ -86,6 +91,10 @@
       }
     }
 
+    @media screen and (max-width: 1367px) {
+      margin: 80px auto;
+    }
+
   }
 
 }
@@ -99,6 +108,10 @@
   margin: 0 auto;
   padding: 0;
   width: 40%;
+
+  @media screen and (max-width: 1367px) {
+    width: 60%;
+  }
 }
 
 .section {
