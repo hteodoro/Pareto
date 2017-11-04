@@ -20,13 +20,13 @@
         <div id="header-container">
 
           <div id="logo-space">
-            <h1 id="logo">Pareto</h1>
+            <h1 id="logo">pareto</h1>
           </div>
 
           <div id="nav">
             <ul id="nav-list">
               <!-- <li class="nav-list-item"><a href="#">soluções</a></li> -->
-              <li class="nav-list-item"><a href="#">contato</a></li>
+              <li class="nav-list-item"><a href="/contact">contato</a></li>
               <li class="nav-list-item"><a href="/login">login</a></li>
               <li class="nav-list-item"><a href="/register">registrar</a></li>
             </ul>

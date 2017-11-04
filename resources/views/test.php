@@ -34,7 +34,7 @@
           <p class="section-text">
             Realize os testes 80/20 para que sua escola e professores
             tenham a informação de onde estão suas verdadeiras dificuldades
-            na disciplina de matemática!
+            na disciplina de matemática! 
           </p>
           <a href="/app/test/do"><button class="section-link">Iniciar teste!</button></a>
         </div>

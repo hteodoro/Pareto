@@ -19,6 +19,10 @@ Route::get('/', function() {
     return view('landing');
 });
 
+Route::get('/contact', function() {
+    return view('contact');
+});
+
 /********************************
     AUTH ROUTES
 ********************************/
