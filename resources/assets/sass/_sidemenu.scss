@@ -1,0 +1,124 @@
+
+#side-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  background: #282828;
+
+  .logo {
+    margin: 20px;
+    padding: 20px;
+    font-family: $montserrat;
+    font-size: 27px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    text-align: center;
+    color: #FFF;
+  }
+
+  .list {
+    display: block;
+    margin: 100px auto;
+    padding: 0;
+
+    .item {
+      margin: 20px;
+      padding: 20px;
+      padding-bottom: 40px;
+      font-family: $montserrat;
+      font-size: 19px;
+      font-weight: 400;
+      text-align: left;
+      color: #FFF;
+
+      a {
+        &:link, &:visited {
+          color: #FFF;
+          opacity: 0.6;
+        }
+
+        &:hover {
+          opacity: 1.0;
+        }
+      }
+
+      @media screen and (max-width: 1367px) {
+        margin: 10px;
+      }
+
+    }
+
+    .test {
+      &::before {
+        content: "\f12c";
+        font-size: 28px;
+        font-family: "Ionicons";
+        padding: 0px 20px;
+      }
+    }
+
+    .map {
+      &::before {
+        content: "\f2b5";
+        font-size: 28px;
+        font-family: "Ionicons";
+        padding: 0px 20px;
+      }
+    }
+
+    .student {
+      &::before {
+        content: "\f357";
+        font-size: 25px;
+        font-family: "Ionicons";
+        padding: 20px;
+      }
+    }
+
+    .class {
+      &::before {
+        content: "\f39e";
+        font-size: 25px;
+        font-family: "Ionicons";
+        padding: 20px;
+      }
+    }
+
+    .teacher {
+      &::before {
+        content: "\f3a0";
+        font-size: 25px;
+        font-family: "Ionicons";
+        padding: 20px;
+      }
+    }
+
+    .perfil {
+      &::before {
+        content: "\f13d";
+        font-size: 28px;
+        font-family: "Ionicons";
+        padding: 0px 20px;
+      }
+    }
+
+
+    .logout {
+      &::before {
+        content: "\f3d2"; // Arrow Left
+        font-size: 25px;
+        font-family: "Ionicons";
+        margin :0;
+        padding: 0px 20px;
+      }
+    }
+
+    @media screen and (max-width: 1367px) {
+      margin: 80px auto;
+    }
+
+  }
+
+}

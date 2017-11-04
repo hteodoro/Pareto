@@ -235,7 +235,8 @@ class Auth extends Controller {
           session([
             'id' => $user->id,
             'class_id' => $user->sala_id,
-            'escola_id' => $user->escola_id
+            'escola_id' => $user->escola_id,
+            'type' => $user_type
           ]);
 
           return redirect('/app/test');
@@ -245,7 +246,8 @@ class Auth extends Controller {
 
           session([
             'id' => $user->id,
-            'escola_id' => $user->escola_id
+            'escola_id' => $user->escola_id,
+            'type' => $user_type
           ]);
 
           return redirect('app/classes');
@@ -255,6 +257,7 @@ class Auth extends Controller {
 
           session([
             'id' => $user->id,
+            'type' => $user_type
           ]);
 
           return redirect('app/classes');
