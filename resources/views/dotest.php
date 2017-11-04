@@ -9,13 +9,13 @@
       <link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro" rel="stylesheet">
       <link rel="stylesheet" href="<?php echo asset('css/normalize.css');?>">
       <link rel="stylesheet" href="<?php echo asset('css/animate.min.css')?>">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
       <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
       <link rel="stylesheet" href="<?php echo asset('css/dotest.min.css');?>">
     </head>
 
     <body>
-      <a href="/app/test"><img id="back-link" title="Página Inicial" src="<?php echo asset('images/left-arrow.svg');?>"></a>
+      <a id="back-link" href="/app/test"></a>
 
       <div id="wrapper">
         <div id="question-container" class="section animated fadeInDown">
@@ -41,9 +41,9 @@
           <!-- Irá conter os marcadores de questões corretas e erradas -->
           <div class="holder">
             <ul id="marker-list">
-              <li class="marker right"><i class="fa fa-circle" aria-hidden="true"></i></li>
-              <li class="marker right"><i class="fa fa-circle" aria-hidden="true"></i></li>
-              <li class="marker wrong"><i class="fa fa-circle" aria-hidden="true"></i></li>
+              <li class="marker right"></li>
+              <li class="marker right"></li>
+              <li class="marker wrong"></li>
             </ul>
           </div>
         </div>

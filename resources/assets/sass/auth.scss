@@ -7,6 +7,14 @@
   left: 45px;
   width: 40px;
   height: 40px;
+
+  &::before {
+    content: "\f124";
+    font-family: "Ionicons";
+    font-size: 30px;
+    color: $secondary;
+  }
+
 }
 
 .container {
@@ -138,8 +146,8 @@
      display: none;
 
       + .label-text:before {
-       content: "\f10c";
-       font-family: "FontAwesome";
+       content: "\f3a6";
+       font-family: "Ionicons";
        speak: none;
        font-style: normal;
        font-weight: normal;
@@ -154,7 +162,7 @@
 
      // When the checkbox is checked...
     &:checked + .label-text:before {
-      content: "\f111";
+      content: "\f21b";
       color: $primary;
       animation: bounce 180ms ease-in;
     }
