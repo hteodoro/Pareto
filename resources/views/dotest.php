@@ -15,7 +15,25 @@
     </head>
 
     <body>
-      <a id="back-link" href="/app/test"></a>
+      <a id="back-link" href="#modal"></a>
+
+      <div class="modal" id="modal">
+        <div class="modal-container">
+          <p class="modal-text">
+            É necessário que o teste
+            seja finalizado para que possamos salvar
+            o seu nível de desempenho nas disciplinas,
+            deseja mesmo sair?
+          </p>
+
+          <div id="button-holder">
+            <a href="#"><p class="option-button nope">Cancelar</p></a>
+            <a href="/app/test"><p class="option-button okay">Sair</p></a>
+          </div>
+
+          <a class="close" href="#"></a>
+        </div>
+      </div>
 
       <div id="wrapper">
         <div id="question-container" class="section animated fadeInDown">
@@ -27,7 +45,7 @@
           <p class="container-text">Calcule o resultado da sequinte questão:</p>
 
           <div id="question-holder">
-            <!-- <p class="question">(3 x 4) + (5 x 2)</p> -->
+            <!-- Perguntas carregadas atráves do React -->
           </div>
 
           <ul id="input-holder">

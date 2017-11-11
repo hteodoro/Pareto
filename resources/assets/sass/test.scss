@@ -1,6 +1,7 @@
 
 @import '_bootstrap';
 @import '_sidemenu';
+@import '_modal';
 
 #wrapper {
   margin: 0 auto;
@@ -18,7 +19,7 @@
 }
 
 .section {
-  margin: 40px auto;
+  margin: 50px auto;
   padding: 20px;
 
   .section-img {

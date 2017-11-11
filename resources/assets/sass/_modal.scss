@@ -1,0 +1,98 @@
+
+.modal-container {
+  z-index: 9999;
+  position: fixed;
+  left: 50%;
+  padding: 20px;
+  width: 40%;
+  background-color: #FFF;
+  border-radius: 5px;
+
+  -webkit-transform: translate(-50%, -200%);
+  -ms-transform: translate(-50%, -200%);
+  transform: translate(-50%, -200%);
+
+  -webkit-transition: -webkit-transform 200ms ease-out;
+  -ms-transition: -ms-transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+
+  .modal-text {
+    margin: 10px;
+    padding: 40px;
+    font-family: $source-sans-pro;
+    font-size: 19px;
+    font-weight: 400;
+    color: $secondary;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .close:before {
+    content: "\f129";
+    font-size: 20px;
+    font-family: "Ionicons";
+    color: $primary;
+    padding: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+
+  #button-holder {
+    margin: 30px;
+    float: right;
+
+    .option-button {
+      display: inline;
+      margin: 0px 20px;
+      font-family: $montserrat;
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+      color: $secondary;
+    }
+
+    .okay:before {
+      content: "\f121";
+      font-size: 20px;
+      font-family: "Ionicons";
+      color: $light-green;
+      padding: 10px;
+    }
+
+    .nope:before {
+      content: "\f128";
+      font-size: 20px;
+      font-family: "Ionicons";
+      color: $light-red;
+      padding: 10px;
+    }
+  }
+
+}
+
+
+.modal:before {
+  content: "";
+  z-index: 999;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal:target:before {
+  display: block;
+}
+
+.modal:target .modal-container {
+  top:10%;
+
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}

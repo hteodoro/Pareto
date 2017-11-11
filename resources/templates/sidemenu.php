@@ -2,7 +2,6 @@
 <?php
 
   $user_type = session('type');
-  echo $user_type;
 
  ?>
 

@@ -16,6 +16,24 @@
 
     <body>
 
+      <div class="modal" id="modal">
+        <div class="modal-container">
+          <p class="modal-text">
+            Quando iniciado é necessário que o teste
+            seja finalizado para que possamos salvar
+            o seu nível de desempenho nas disciplinas,
+            deseja mesmo iniciar?
+          </p>
+
+          <div id="button-holder">
+            <a href="#"><p class="option-button nope">Cancelar</p></a>
+            <a href="/app/test/do"><p class="option-button okay">Iniciar</p></a>
+          </div>
+
+          <a class="close" href="#"></a>
+        </div>
+      </div>
+
       <?php include_once __DIR__ . '/../templates/sidemenu.php'; ?>
 
       <div id="wrapper">
@@ -26,7 +44,8 @@
             tenham a informação de onde estão suas verdadeiras dificuldades
             na disciplina de matemática!
           </p>
-          <a href="/app/test/do"><button class="section-link">Iniciar teste!</button></a>
+          <!-- <a href="/app/test/do"><button class="section-link">Iniciar teste!</button></a> -->
+          <a href="#modal"><button class="section-link">Iniciar teste!</button></a>
         </div>
       </div>
 
