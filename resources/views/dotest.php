@@ -64,9 +64,9 @@
           <!-- Irá conter os marcadores de questões corretas e erradas -->
           <div class="holder">
             <ul id="marker-list">
+              <!-- <li class="marker right"></li>
               <li class="marker right"></li>
-              <li class="marker right"></li>
-              <li class="marker wrong"></li>
+              <li class="marker wrong"></li> -->
             </ul>
           </div>
         </div>

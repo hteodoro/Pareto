@@ -101,6 +101,8 @@ $("#submit-answer").on('click', function() {
     loadEmptyError();
     return;
   }
+  // Clear the error message (if it exists)
+  clearEmptyError();
   // If the answer gave by the user is correct
   if(answer == question_answer) {
     // Checking if that are any previous error
@@ -121,6 +123,7 @@ $("#submit-answer").on('click', function() {
     // Load another question if it only had loaded 4 or less questions
     if(question_level <= 4) {
       // Loading another question
+      loadMarkers('right');
       loadQuestion();
     } else {
       if(subject_marker == (subjects.length - 1)) {
@@ -138,6 +141,7 @@ $("#submit-answer").on('click', function() {
         // Reseting performance
         performance = 0;
         // Reloading another question with a different subject
+        loadMarkers('clear');
         loadQuestion();
       }
     }
@@ -153,6 +157,7 @@ $("#submit-answer").on('click', function() {
     // If it is the first error
     if(errors < 2) {
       // Reaload another question with the same level
+      loadMarkers('wrong');
       loadQuestion();
     }
     // If it is the second error
@@ -174,6 +179,7 @@ $("#submit-answer").on('click', function() {
         // Reseting performance
         performance = 0;
         // Reloading another question with a different subject
+        loadMarkers('clear');
         loadQuestion();
       }
     }
@@ -182,14 +188,28 @@ $("#submit-answer").on('click', function() {
 });
 
 
-function loadMarkers() {
-
+function loadMarkers(config) {
+  switch(config) {
+    case 'right':
+      $("#marker-list").append("<li class='marker right'></li>");
+      break;
+    case 'wrong':
+      $("#marker-list").append("<li class='marker wrong'></li>");
+      break;
+    case 'clear':
+      $("#marker-list").html("");
+  }
 }
 
 
 function loadEmptyError() {
   const errorMessage = <p className="emptyError animated fadeIn">Insira uma resposta válida (Resposta vazia)</p>;
   ReactDOM.render(errorMessage, document.getElementById('error'));
+}
+
+
+function clearEmptyError() {
+  ReactDOM.render("", document.getElementById('error'));
 }
 
 
