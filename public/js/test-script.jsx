@@ -96,6 +96,11 @@ loadQuestion();
 $("#submit-answer").on('click', function() {
   // Getting the value gave by the user (user answer)
   let answer = $("#answer-input").val();
+  // Check if the answer is empty
+  if(answer == '') {
+    loadEmptyError();
+    return;
+  }
   // If the answer gave by the user is correct
   if(answer == question_answer) {
     // Checking if that are any previous error
@@ -179,6 +184,12 @@ $("#submit-answer").on('click', function() {
 
 function loadMarkers() {
 
+}
+
+
+function loadEmptyError() {
+  const errorMessage = <p className="emptyError animated fadeIn">Insira uma resposta válida (Resposta vazia)</p>;
+  ReactDOM.render(errorMessage, document.getElementById('error'));
 }
 
 

@@ -39,13 +39,18 @@
         <div id="question-container" class="section animated fadeInDown">
           <!-- Irá conter a questão e input de resposta -->
           <div id="subject-holder">
-            <!-- <p class="subject">Multiplicação</p> -->
+            <!-- Matéria e dificuldade carregadas através do React -->
           </div>
 
           <p class="container-text">Calcule o resultado da sequinte questão:</p>
 
+          <!-- Irá receber mensagem de erro quando a resposta for vazia -->
+          <div id="error">
+            <!-- Mensagem carregada através do React -->
+          </div>
+
           <div id="question-holder">
-            <!-- Perguntas carregadas atráves do React -->
+            <!-- Perguntas carregadas através do React -->
           </div>
 
           <ul id="input-holder">
