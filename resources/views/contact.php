@@ -15,34 +15,15 @@
 
     <body>
 
-      <div id="header">
-
-        <div id="header-container">
-
-          <div id="logo-space">
-            <h1 id="logo">pareto</h1>
-          </div>
-
-          <div id="nav">
-            <ul id="nav-list">
-              <!-- <li class="nav-list-item"><a href="#">soluções</a></li> -->
-              <li class="nav-list-item"><a href="/contact">contato</a></li>
-              <li class="nav-list-item"><a href="/login">login</a></li>
-              <li class="nav-list-item"><a href="/register">registrar</a></li>
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
+      <?php include_once __DIR__ . '/../templates/header.php';?>
 
       <div id="wrapper">
 
         <div class="section">
           <div class="container">
-            <img src="<?php echo asset('images/ParetoLight.svg')?>" class="">
-            <h1 class="heading">Entre em contato conosco!</h1>
-            <p class="text">
+            <img src="<?php echo asset('images/ParetoLight.svg')?>" class="animated rotateIn">
+            <h1 class="heading animated fadeInUp">Entre em contato conosco!</h1>
+            <p class="text animated fadeInUp">
               Entre em contato com nossa equipe para poder sanar todas as
               dúvidas possíveis sobre o funcionamento do nosso produto e entender
               melhor nossas soluções e como elas podem ajudar a sua escola, professores
@@ -53,7 +34,7 @@
 
         <div class="section">
           <div class="container pure-g">
-            <div class="pure-u-1-2">
+            <div class="pure-u-1-2 animated fadeIn">
               <h1 class="heading">Contato de vendas</h1>
               <p class="text">
                 Converse com nossa equipe de vendas para entender melhor
@@ -63,7 +44,7 @@
               <p class="email">vendas@pareto.com</p>
             </div>
 
-            <div class="pure-u-1-2">
+            <div class="pure-u-1-2 animated fadeIn">
               <h1 class="heading">Contato de suporte</h1>
               <p class="text">
                 Converse com nossa equipe de suporte caso necessite resolver

@@ -1,78 +1,6 @@
 
 @import '_bootstrap';
-
-#header {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background: #FFF;
-
-  #header-container {
-    margin: 0 auto;
-    padding: 0;
-    width: 55%;
-    // Contain the float on elements
-    overflow: auto;
-
-    #logo-space {
-      display: inline-block;
-      float: left;
-      margin: 0;
-      padding: 10px;
-
-      #logo {
-        font-family: $montserrat;
-        font-size: 33px;
-        font-weight: 400;
-        color: $secondary;
-      }
-    }
-
-    #nav {
-      display: inline-block;
-      float: right;
-      margin: 0;
-      padding: 10px;
-
-      #nav-list {
-        padding: 12px 0;
-
-          .nav-list-item {
-            display: inline;
-            margin: 0px 10px;
-            padding: 10px 10px;
-            font-family: $montserrat;
-            font-size: 18px;
-            font-weight: 400;
-            color: $secondary;
-
-            span {
-              padding: 18px;
-              background: $primary;
-              color: #FFF;
-              border-radius: 10px;
-            }
-
-            a {
-              color: $secondary;
-
-              &:link, &:visited {
-                color: $secondary;
-              }
-
-              &:hover {
-
-              }
-            }
-
-          }
-      }
-
-    }
-
-  }
-}
-
+@import '_header';
 
 #wrapper {
 
@@ -88,8 +16,9 @@
       img {
         display: block;
         margin: 20px auto;
-        width: 200px;
-        height: 200px;
+        padding: 15px;
+        width: 175px;
+        height: 175px;
       }
 
       .heading {
