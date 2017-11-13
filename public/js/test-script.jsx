@@ -188,13 +188,50 @@ $("#submit-answer").on('click', function() {
 });
 
 
+$("#notknow-answer").on('click', function() {
+  // Clearing the input
+  $("#answer-input").val('');
+  // Increasing the number of errors
+  errors += 1;
+  // If it is the first error
+  if(errors < 2) {
+    // Reaload another question with the same level
+    loadMarkers('wrong');
+    loadQuestion();
+  }
+  // If it is the second error
+  else {
+    if(subject_marker == (subjects.length - 1)) {
+      // If the user answer questions of all the subjects, save the performance
+      savePerformance();
+    } else {
+      // Resetin errors
+      errors = 0;
+      // Reseting question level
+      question_level = 1;
+      // Get the subject name to access the subjectPerformance values
+      let subjectName = subjects[subject_marker];
+      // Adding the user performance to the respective subject in the subjectPerformance array
+      subjectPerformance[subjectName] += performance;
+      // Adding to the subject marker to chance the question's subject
+      subject_marker += 1;
+      // Reseting performance
+      performance = 0;
+      // Reloading another question with a different subject
+      loadMarkers('clear');
+      loadQuestion();
+    }
+  }
+});
+
+
 function loadMarkers(config) {
   switch(config) {
     case 'right':
-      $("#marker-list").append("<li class='marker right'></li>");
+      $("#marker-list").append("<li class='marker right animated fadeIn'></li>");
       break;
     case 'wrong':
-      $("#marker-list").append("<li class='marker wrong'></li>");
+      $("#marker-list").append("<li class='marker wrong animated fadeIn'></li>");
       break;
     case 'clear':
       $("#marker-list").html("");

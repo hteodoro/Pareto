@@ -83,6 +83,7 @@
     }
   }
 
+
   #answer-input {
     margin: 20px;
     padding:20px;
@@ -103,7 +104,7 @@
 
   }
 
-  #submit-answer {
+  .submit-answer {
     margin: 5px;
     padding: 18px 25px;
     font-family: $montserrat;
@@ -118,7 +119,6 @@
       margin: 15px;
       padding: 12px 25px;
     }
-
   }
 
 }

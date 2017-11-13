@@ -54,8 +54,9 @@
           </div>
 
           <ul id="input-holder">
-            <li><input id="answer-input" type="text" name="answer" placeholder="Responda a questão..."></li>
-            <li><input id="submit-answer" type="submit" value="OK!"/></li>
+            <li><input id="answer-input" type="text" name="answer" placeholder="Responda a questão..."/></li>
+            <li><input id="submit-answer" class="submit-answer" type="submit" value="Responder!"/></li>
+            <li><input id="notknow-answer" class="submit-answer" type="submit" value="Não Sei..."/></li>
           </ul>
 
         </div>
