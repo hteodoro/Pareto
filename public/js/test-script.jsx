@@ -15,14 +15,14 @@ let question_answer = "";
 // Array with all the subject's names
 let subjects = [
     "Multiplicação",
-    "Outro1",
-    "Outro2"
+    "Divisão",
+    "Fração"
 ];
 // Array with the user performance in every subject
 let subjectPerformance = {
     "Multiplicação": 0,
-    "Outro1": 0,
-    "Outro2": 0
+    "Divisão": 0,
+    "Fração": 0
 };
 
 // Array de Questões de Multiplicação
@@ -37,21 +37,21 @@ let multiply = [
 
     ["(3 x 4) + (5 x 2)", "3", "Multiplicação", 4],
 
-    ["(3 x 4) + (5 x 2)", "3", "Outro1", 1],
+    ["(3 x 4) + (5 x 2)", "3", "Divisão", 1],
 
-    ["7 x 8 + (5 x 5 + 4 - 2)", "4", "Outro1", 2],
+    ["7 x 8 + (5 x 5 + 4 - 2)", "4", "Divisão", 2],
 
-    ["(5 x 6) - 2 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Outro1", 3],
+    ["(5 x 6) - 2 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Divisão", 3],
 
-    ["(6 x 6) - 7 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Outro1", 4],
+    ["(6 x 6) - 7 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Divisão", 4],
 
-    ["(3 x 4) + (5 x 2)", "3", "Outro2", 1],
+    ["(3 x 4) + (5 x 2)", "3", "Fração", 1],
 
-    ["7 x 8 + (5 x 5 + 4 - 2)", "4", "Outro2", 2],
+    ["7 x 8 + (5 x 5 + 4 - 2)", "4", "Fração", 2],
 
-    ["(5 x 6) - 2 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Outro2", 3],
+    ["(5 x 6) - 2 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Fração", 3],
 
-    ["(6 x 6) - 7 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Outro2", 4]
+    ["(6 x 6) - 7 x ((5 x 4 - 1) + 4 x (4 - 1))", "4", "Fração", 4]
 ];
 
 function loadQuestion() {
@@ -90,6 +90,7 @@ function loadQuestion() {
   ReactDOM.render(question, document.getElementById('question-holder'));
 }
 
+// Loading the question for the first time
 loadQuestion();
 
 // TODO:: Listen to the input button click
@@ -98,7 +99,9 @@ $("#submit-answer").on('click', function() {
   let answer = $("#answer-input").val();
   // Check if the answer is empty
   if(answer == '') {
+    // Loading the empty error message
     loadEmptyError();
+    // Killing the script
     return;
   }
   // Clear the error message (if it exists)
@@ -124,6 +127,7 @@ $("#submit-answer").on('click', function() {
     if(question_level <= 4) {
       // Loading another question
       loadMarkers('right');
+      // Loading another question
       loadQuestion();
     } else {
       if(subject_marker == (subjects.length - 1)) {
@@ -142,6 +146,7 @@ $("#submit-answer").on('click', function() {
         performance = 0;
         // Reloading another question with a different subject
         loadMarkers('clear');
+        // Loading another question
         loadQuestion();
       }
     }
@@ -158,6 +163,7 @@ $("#submit-answer").on('click', function() {
     if(errors < 2) {
       // Reaload another question with the same level
       loadMarkers('wrong');
+      // Loading another question
       loadQuestion();
     }
     // If it is the second error
@@ -180,6 +186,7 @@ $("#submit-answer").on('click', function() {
         performance = 0;
         // Reloading another question with a different subject
         loadMarkers('clear');
+        // Loading another question
         loadQuestion();
       }
     }
@@ -219,6 +226,7 @@ $("#notknow-answer").on('click', function() {
       performance = 0;
       // Reloading another question with a different subject
       loadMarkers('clear');
+      // Loading another question
       loadQuestion();
     }
   }
@@ -228,30 +236,44 @@ $("#notknow-answer").on('click', function() {
 function loadMarkers(config) {
   switch(config) {
     case 'right':
+      // Loading a marker with the right answer style
       $("#marker-list").append("<li class='marker right animated fadeIn'></li>");
       break;
     case 'wrong':
+      // Loading a marker with the wrong answer style
       $("#marker-list").append("<li class='marker wrong animated fadeIn'></li>");
       break;
     case 'clear':
+      // Clearing the markers
       $("#marker-list").html("");
   }
 }
 
 
 function loadEmptyError() {
+  // Empty error message
   const errorMessage = <p className="emptyError animated fadeIn">Insira uma resposta válida (Resposta vazia)</p>;
+  // Loading the Empty error message
   ReactDOM.render(errorMessage, document.getElementById('error'));
 }
 
 
 function clearEmptyError() {
+  // Clearing the empty error message
   ReactDOM.render("", document.getElementById('error'));
 }
 
 
 function savePerformance() {
-  // TODO: Make a Request with the values
-  let subjectName = subjects[0];
-  alert(subjectPerformance[subjectName]);
+  // Making an AJAX Request to save the performance data
+  $.ajax({
+    url: "/performance",
+    type: "GET",
+    data: subjectPerformance,
+    dataType: "json",
+    success: function(data) {
+      window.location.href = "/app/test";
+    }
+  });
+
 }

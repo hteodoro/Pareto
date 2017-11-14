@@ -109,3 +109,9 @@ Route::prefix('/app/map')->group(function() {
   })->name('class_map')->middleware('check_auth');
 
 });
+
+/*********************************
+    TEST OPERATIONS
+*********************************/
+
+Route::get('/performance', 'Performance@store')->middleware('check_auth');
