@@ -52,7 +52,7 @@ class ParetoTables extends Migration {
         $table->increments('relacao_id');
         $table->integer('aluno_id');
         $table->integer('materia_id');
-        $table->integer('dificuldade_nivel');
+        $table->string('dificuldade_nivel');
       });
     }
 

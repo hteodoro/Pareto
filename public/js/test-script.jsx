@@ -265,15 +265,15 @@ function clearEmptyError() {
 
 
 function savePerformance() {
-  // Making an AJAX Request to save the performance data
+  //Making an AJAX Request to save the performance data
   $.ajax({
     url: "/performance",
     type: "GET",
     data: subjectPerformance,
     dataType: "json",
     success: function(data) {
-      window.location.href = "/app/test";
+      alert(data);
+      // window.location.href = "/app/test";
     }
   });
-
 }

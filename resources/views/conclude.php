@@ -64,6 +64,14 @@
                </div>
 
                <input type="text" name="name" placeholder="Insira seu nome...">
+
+               <div class="holder">
+                 <p class="pre-input-text">
+                   Insira abaixo a disciplina na qual vocÊ da aula
+                 </p>
+               </div>
+
+               <input type="text" name="subject" placeholder="Insira sua disciplina...">
              <?php endif; ?>
 
              <?php if($user->getType() == 'school') : ?>

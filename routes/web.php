@@ -64,25 +64,24 @@ Route::prefix('/app')->group(function() {
 
   Route::get('/students', function() {
     // TODO: Retornar página com lista de alunos
-    return "Students Page";
+    return view('students');
   })->name('students')->middleware('check_auth');
 
   Route::get('/teachers', function() {
     // TODO: Retornar página com lista de professores (Especifico para escolas)
-    return "Teachers Page";
+    return view('teachers');
   })->name('teachers')->middleware('check_auth');
 
   Route::get('/classes', function() {
     // TODO: Retornar página com lista de salas
-    return "Classes Page";
+    return view('classes');
   })->name('classes')->middleware('check_auth');
 
 });
 
-/********************************
-    CLASS OPERATIONS
-********************************/
-
+/**********************************
+    CLASS OPERATIONS AND PAGES
+**********************************/
 Route::prefix('/app/classes')->group(function() {
   // Create new class
   Route::post('/add', 'Class@store')->middleware('check_auth');
@@ -100,12 +99,12 @@ Route::prefix('/app/map')->group(function() {
 
   Route::get('/student/{student_id}', function($student_id){
     // TODO: Retornar Página de Mapa de Desempenho de aluno com parametro 'student_id'
-    return "Performance Map For $student_id";
+    return view('student_map');
   })->name('student_map')->middleware('check_auth');
 
   Route::get('/class/{class_id}', function($class_id) {
     // TODO: Retornar Página de Mapa de Desempenho de aluno com parametro 'student_id'
-    return "Performance Map For $class_id";
+    return view('class_map');
   })->name('class_map')->middleware('check_auth');
 
 });

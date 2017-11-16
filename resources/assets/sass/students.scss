@@ -1,0 +1,142 @@
+
+@import '_bootstrap';
+@import '_sidemenu';
+@import '_modal';
+
+#wrapper {
+  margin: 0 auto;
+  margin-left: 300px;
+  padding: 20px;
+}
+
+.section {
+  margin: 30px;
+  padding: 20px;
+}
+
+#upper-options {
+  margin: 0 auto;
+  padding: 20px;
+  width: 60%;
+
+  #selectors {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+
+    .item {
+      display: inline-block;
+      padding: 15px;
+    }
+
+    .search {
+      margin: 25px auto;
+      padding: 15px 20px;
+      width: 450px;
+      border: 2px solid #dad7d4;
+      border-radius: 10px;
+
+      font-family: $montserrat;
+      font-size: 17px;
+      font-weight: 400;
+      color: $secondary;
+      opacity: 1;
+    }
+
+    .icon {
+      margin: 25px 15px;
+      padding: 15px 0px;
+      font-family: "Ionicons";
+      font-size: 30px;
+      color: $secondary;
+    }
+
+    #search-icon:before {
+      content: "\f21f";
+    }
+
+    #filter-icon:before {
+      content: "\f123";
+    }
+
+  }
+}
+
+
+#info-section {
+
+}
+
+
+#info-holder {
+  margin: 0 auto;
+  padding: 0px 20px;
+  text-align: center;
+
+  .item {
+    display: block;
+    margin: 60px;
+    padding: 0px 20px;
+
+    .info-list {
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+
+      .info-title {
+        display: inline;
+        font-family: $montserrat;
+        font-size: 18px;
+        font-weight: 600;
+        color: $secondary;
+        opacity: 0.5;
+      }
+
+      .info-item {
+        display: inline;
+      }
+
+      .name {
+        font-family: $montserrat;
+        font-size: 19px;
+        font-weight: 400;
+        color: $secondary;
+      }
+
+      .class {
+        font-family: $montserrat;
+        font-size: 19px;
+        font-weight: 600;
+        color: $light-blue;
+        opacity: 0.8;
+      }
+
+      .map {
+        font-family: $montserrat;
+        font-size: 19px;
+        font-weight: 600;
+        color: $secondary;
+        opacity: 0.8;
+
+        &:before {
+          padding: 20px;
+          content: "\f2b5";
+          font-family: "Ionicons";
+          font-size: 28px;
+          color: $secondary;
+        }
+      }
+
+      .delete {
+        font-family: $montserrat;
+        font-size: 19px;
+        font-weight: 600;
+        color: $light-red;
+        opacity: 0.8;
+      }
+
+    }
+
+  }
+
+}

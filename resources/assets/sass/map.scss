@@ -1,0 +1,120 @@
+
+@import '_bootstrap';
+@import '_sidemenu';
+@import '_modal';
+
+#wrapper {
+  margin: 0 auto;
+  margin-left: 300px;
+  padding: 20px;
+}
+
+.section {
+  margin: 30px;
+  padding: 20px;
+}
+
+
+#presentation {
+  #heading {
+    margin: 25px;
+    padding: 20px;
+    font-family: $montserrat;
+    font-size: 40px;
+    font-weight: 400;
+    color: $secondary;
+    text-align: center;
+
+    &:before {
+      padding: 20px;
+      content: "\f2b5";
+      font-family: "Ionicons";
+      font-size: 45px;
+    }
+  }
+
+  #sub-heading {
+    margin: 12px;
+    padding: 10px;
+    font-family: $montserrat;
+    font-size: 25px;
+    font-weight: 400;
+    color: $secondary;
+    text-align: center;
+    opacity: 0.6;
+  }
+}
+
+
+#info-holder {
+  margin: 0 auto;
+  padding: 0px 20px;
+  text-align: center;
+
+  .item {
+    display: block;
+    margin: 60px;
+    padding: 0px 20px;
+
+    .info-list {
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+
+      .info-title {
+        display: inline;
+        font-family: $montserrat;
+        font-size: 18px;
+        font-weight: 600;
+        color: $secondary;
+        opacity: 0.5;
+      }
+
+      .info-item {
+        display: inline;
+      }
+
+      .name {
+        font-family: $montserrat;
+        font-size: 19px;
+        font-weight: 400;
+        color: $secondary;
+      }
+
+      .test {
+        font-family: $montserrat;
+        font-size: 19px;
+        font-weight: 400;
+        color: $secondary;
+        letter-spacing: 1px;
+      }
+
+      .good {
+        font-family: $montserrat;
+        font-size: 19px;
+        font-weight: 600;
+        color: $light-green;
+        opacity: 0.8;
+      }
+
+      .mid {
+        font-family: $montserrat;
+        font-size: 19px;
+        font-weight: 600;
+        color: $light-blue;
+        opacity: 0.8;
+      }
+
+      .bad {
+        font-family: $montserrat;
+        font-size: 19px;
+        font-weight: 600;
+        color: $light-red;
+        opacity: 0.8;
+      }
+
+    }
+
+  }
+
+}

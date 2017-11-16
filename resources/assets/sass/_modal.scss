@@ -8,17 +8,32 @@
   background-color: #FFF;
   border-radius: 5px;
 
-  -webkit-transform: translate(-50%, -200%);
-  -ms-transform: translate(-50%, -200%);
-  transform: translate(-50%, -200%);
+  -webkit-transform: translate(-50%, -500%);
+  -ms-transform: translate(-50%, -500%);
+  transform: translate(-50%, -500%);
 
-  -webkit-transition: -webkit-transform 200ms ease-out;
-  -ms-transition: -ms-transform 200ms ease-out;
-  transition: transform 200ms ease-out;
+  -webkit-transition: -webkit-transform 350ms ease-out;
+  -ms-transition: -ms-transform 350ms ease-out;
+  transition: transform 350ms ease-out;
+
+  input[type='text'] {
+    display: block;
+    margin: 10px auto;
+    padding: 15px 20px;
+    width: 50%;
+    border: 2px solid #dad7d4;
+    border-radius: 10px;
+
+    font-family: $montserrat;
+    font-size: 17px;
+    font-weight: 400;
+    color: $secondary;
+    opacity: 0.9;
+  }
 
   .modal-text {
     margin: 10px;
-    padding: 40px;
+    padding: 20px;
     font-family: $source-sans-pro;
     font-size: 19px;
     font-weight: 400;
