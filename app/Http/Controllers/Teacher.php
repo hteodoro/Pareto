@@ -22,10 +22,10 @@ class Teacher extends Controller {
     }
   }
 
-  public static function store($name, $email, $password, $school_id) {
+  public static function store($name, $email, $password, $subject, $school_id) {
     DB::insert(
-      'INSERT INTO professores (nome, email, senha, escola_id) VALUES (:name, :email, :password, :school_id)',
-      ['name' => $name, 'email' => $email, 'password' => $password, 'school_id' => $school_id]
+      'INSERT INTO professores (nome, email, senha, disciplina, escola_id) VALUES (:name, :email, :password, :subject, :school_id)',
+      ['name' => $name, 'email' => $email, 'password' => $password, 'subject' => $subject, 'school_id' => $school_id]
     );
   }
 

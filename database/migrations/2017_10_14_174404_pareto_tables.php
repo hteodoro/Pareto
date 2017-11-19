@@ -25,6 +25,7 @@ class ParetoTables extends Migration {
         $table->increments('id');
         $table->string('nome');
         $table->string('email');
+        $table->string('disciplina');
         $table->string('senha');
         $table->integer('escola_id');
       });

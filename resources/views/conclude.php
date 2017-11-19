@@ -9,12 +9,12 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo asset('css/normalize.css');?>">
         <link rel="stylesheet" href="<?php echo asset('css/animate.min.css')?>">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="<?php echo asset('css/auth.min.css');?>">
       </head>
 
       <body>
-          <a href="/register"><img id="back-link" title="Página Registro" src="<?php echo asset('images/left-arrow.svg');?>"></a>
+          <a id="back-link" href="/register" title="página de registro"></a>
 
           <div class="container animated fadeInDown">
           <img class="animated rotateIn" src="<?php echo asset('images/ParetoLight.svg');?>">
@@ -46,6 +46,12 @@
                </div>
 
                <input type="text" name="name" placeholder="Insira seu nome...">
+
+               <div class="holder">
+                 <p class="pre-input-text">
+                   Selecione a classe em que você estuda
+                 </p>
+               </div>
                <!-- Class selection -->
                <select name="class">
                  <?php foreach($classes as $class) : ?>
@@ -67,7 +73,7 @@
 
                <div class="holder">
                  <p class="pre-input-text">
-                   Insira abaixo a disciplina na qual vocÊ da aula
+                   Insira abaixo a disciplina na qual você da aula
                  </p>
                </div>
 

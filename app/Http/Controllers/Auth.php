@@ -149,12 +149,18 @@ class Auth extends Controller {
       $school_id = $request->school_id;
 
       if($user_type == 'student') {
+        // Getting the id of the class that the student registered
         $class_id = $request->class;
       }
 
       if($user_type == 'school') {
         // Getting the name of the first class created by the school
         $first_class = $request->first_class;
+      }
+
+      if($user_type == 'teacher') {
+        // Gettin the subject that the teacher teaches
+        $subject = $request->subject;
       }
 
       // TODO: Store all users
@@ -173,7 +179,7 @@ class Auth extends Controller {
           break;
         case 'teacher':
           // Storing a new teacher
-          Teacher::store($name, $email, $password, $school_id);
+          Teacher::store($name, $email, $password, $subject, $school_id);
           // Querying the same teacher by email
           $user = Teacher::show($email, 'email');
           // Calling buildSessions with info needed
