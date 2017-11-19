@@ -50,6 +50,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'high_access' => \App\Http\Middleware\HighAccess::class,
+        'student_access' => \App\Http\Middleware\StudentAccess::class,
+        'school_access' => \App\Http\Middleware\SchoolAccess::class,
         'check_auth' => \App\Http\Middleware\CheckAuth::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
