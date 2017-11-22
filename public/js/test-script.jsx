@@ -263,17 +263,27 @@ function clearEmptyError() {
   ReactDOM.render("", document.getElementById('error'));
 }
 
+$("#save-answer").on('click', function() {
+  savePerformance()
+});
 
 function savePerformance() {
-  //Making an AJAX Request to save the performance data
-  $.ajax({
-    url: "/performance",
-    type: "GET",
-    data: subjectPerformance,
-    dataType: "json",
-    success: function(data) {
-      alert(data);
-      // window.location.href = "/app/test";
-    }
-  });
+  // Executing a loop to the performance values
+  for(let i in subjectPerformance) {
+    // Getting the subject name
+    let subject = i;
+    // Getting the test performance on the subject
+    let performance = subjectPerformance[i];
+
+    // Making an AJAX Request to save the performance data
+    // TODO:: Check to see why the POST is not working
+    $.ajax({
+      url: "/performance",
+      type: "GET",
+      data: {subject: subject, performance: performance},
+      success: function(data) {
+          window.location.href = "/app/test";
+      }
+    });
+  }
 }

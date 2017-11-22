@@ -57,6 +57,8 @@
             <li><input id="answer-input" type="text" name="answer" placeholder="Responda a questão..."/></li>
             <li><input id="submit-answer" class="submit-answer" type="submit" value="Responder!"/></li>
             <li><input id="notknow-answer" class="submit-answer" type="submit" value="Não Sei..."/></li>
+            <!-- OBS: Just here to test purposes -->
+            <li><input id="save-answer" class="submit-answer" type="submit" value="SAVE (TEST)"/></li>
           </ul>
 
         </div>

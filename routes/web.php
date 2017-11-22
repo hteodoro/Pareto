@@ -12,6 +12,7 @@
 */
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 Route::get('/', function() {
@@ -114,3 +115,14 @@ Route::prefix('/app/map')->group(function() {
 *********************************/
 
 Route::get('/performance', 'Performance@store')->middleware('check_auth');
+
+
+/*********************************
+    DEVELOPMENT TESTING
+*********************************/
+
+Route::get('/testing', function(Request $request) {
+
+  return $request->input('name');
+
+});

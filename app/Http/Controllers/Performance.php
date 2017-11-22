@@ -9,83 +9,46 @@ use App\Http\Controllers\Subject;
 
 class Performance extends Controller {
     public static function store(Request $request) {
-
-      $knowledge_level = '';
-
-      $multiply = $request->input('Multiplicação');
-
-      switch(true) {
-        case $multiply < 1:
-          $knowledge_level = "Muita Dificuldade";
-          break;
-        case $multiply >= 1 && $multiply< 4:
-          $knowledge_level = "Dificuldade";
-          break;
-        case $multiply >= 4 && $multiply < 6.5:
-          $knowledge_level = "Mediano";
-          break;
-        case $multiply >= 6.5 && $multiply < 10:
-          $knowledge_level = "Facilidade";
-          break;
-        case $multiply >= 10:
-          $knowledge_level = "Muita facilidade";
-      }
-
-      DB::insert(
-        'INSERT INTO dificuldade (aluno_id, materia_id, dificuldade_nivel) VALUES (:aluno_id, :materia_id, :nivel)',
-        ['aluno_id' => session('id'), 'materia_id' => 1, 'nivel' => $knowledge_level]
-      );
-
-      $division = $request->input('Divisão');
+      // TODO:: Get the subject and performance value
+      $subject = $request->input('subject');
+      $performance = $request->input('performance');
+      $level = '';
 
       switch(true) {
-        case $division  < 1:
-          $knowledge_level = "Muita Dificuldade";
+        case $performance < 1:
+          $level = "Muita Dificuldade";
           break;
-        case $division  >= 1 && $division  < 4:
-          $knowledge_level = "Dificuldade";
+        case $performance >= 1 && $performance < 4:
+          $level = "Dificuldade";
           break;
-        case $division >= 4 && $division  < 6.5:
-          $knowledge_level = "Mediano";
+        case $performance >= 4 && $performance < 6.5:
+          $level = "Mediano";
           break;
-        case $division  >= 6.5 && $division  < 10:
-          $knowledge_level = "Facilidade";
+        case $performance >= 6.5 && $performance < 10:
+          $level = "Facilidade";
           break;
-        case $division  >= 10:
-          $knowledge_level = "Muita facilidade";
+        case $performance >= 10:
+          $level = "Muita facilidade";
       }
 
-      DB::insert(
-        'INSERT INTO dificuldade (aluno_id, materia_id, dificuldade_nivel) VALUES (:aluno_id, :materia_id, :nivel)',
-        ['aluno_id' => session('id'), 'materia_id' => 2, 'nivel' => $knowledge_level]
-      );
+      // TODO:: Get the Subject id
+      $subject_id;
+      $subjects = Subject::show($subject, 'name');
 
-      $fraction = $request->input('Fração');
-
-      switch(true) {
-        case $fraction < 1:
-          $knowledge_level = "Muita Dificuldade";
-          break;
-        case $fraction >= 1 && $fraction < 4:
-          $knowledge_level = "Dificuldade";
-          break;
-        case $fraction >= 4 && $fraction < 6.5:
-          $knowledge_level = "Mediano";
-          break;
-        case $fraction >= 6.5 && $fraction < 10:
-          $knowledge_level = "Facilidade";
-          break;
-        case $fraction >= 10:
-          $knowledge_level = "Muita facilidade";
+      foreach($subjects as $subject) {
+        $subject_id = $subject->id;
       }
 
+      // TODO:: Get the student id
+      $student_id = session('id');
+
+      // TODO:: Store the performance value on the Database
       DB::insert(
-        'INSERT INTO dificuldade (aluno_id, materia_id, dificuldade_nivel) VALUES (:aluno_id, :materia_id, :nivel)',
-        ['aluno_id' => session('id'), 'materia_id' => 3, 'nivel' => $knowledge_level]
+        'INSERT INTO dificuldade (aluno_id, materia_id, dificuldade_nivel) VALUES (:student_id, :subject_id, :level)',
+        ['student_id' => $student_id, 'subject_id' => $subject_id, 'level' => $level]
       );
 
-
-      // Returning message to AJAX (In JSON Form)
       return json_encode(true);
+
     }
 }
