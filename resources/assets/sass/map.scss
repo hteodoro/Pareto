@@ -92,25 +92,50 @@
       .good {
         font-family: $montserrat;
         font-size: 19px;
-        font-weight: 600;
-        color: $light-green;
-        opacity: 0.8;
+        font-weight: 400;
+        color: $secondary;
+
+        &:before {
+          content: "\f21b";
+          padding: 15px;
+          font-family: "Ionicons";
+          font-size: 19px;
+          color: $light-green;
+          opacity: 0.7;
+        }
+
       }
 
       .mid {
         font-family: $montserrat;
         font-size: 19px;
-        font-weight: 600;
-        color: $light-blue;
-        opacity: 0.8;
+        font-weight: 400;
+        color: $secondary;
+
+        &:before {
+          content: "\f21b";
+          padding: 15px;
+          font-family: "Ionicons";
+          font-size: 19px;
+          color: $light-blue;
+          opacity: 0.7;
+        }
       }
 
       .bad {
         font-family: $montserrat;
         font-size: 19px;
-        font-weight: 600;
-        color: $light-red;
-        opacity: 0.8;
+        font-weight: 400;
+        color: $secondary;
+
+        &:before {
+          content: "\f21b";
+          padding: 15px;
+          font-family: "Ionicons";
+          font-size: 19px;
+          color: $light-red;
+          opacity: 0.7;
+        }
       }
 
     }

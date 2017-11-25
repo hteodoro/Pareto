@@ -2,6 +2,10 @@
 
 <!DOCTYPE html>
   <html>
+    <?php
+      use App\Http\Controllers\Performance;
+      use App\Http\Controllers\SchoolClass;
+    ?>
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,6 +44,8 @@
                   <li class="info-title pure-u-1-6">Muita Facilidade</li>
                 </ul>
               </li>
+
+
 
               <li class="item">
                 <ul class="info-list pure-g">

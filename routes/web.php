@@ -100,12 +100,12 @@ Route::prefix('/app/map')->group(function() {
 
   Route::get('/student/{student_id}', function($student_id){
     // TODO: Retornar Página de Mapa de Desempenho de aluno com parametro 'student_id'
-    return view('student_map');
+    return view('student_map')->with('student_id', $student_id);
   })->name('student_map')->middleware('check_auth');
 
   Route::get('/class/{class_id}', function($class_id) {
     // TODO: Retornar Página de Mapa de Desempenho de aluno com parametro 'student_id'
-    return view('class_map');
+    return view('class_map')->with('class_id', $class_id);
   })->name('class_map')->middleware('check_auth', 'high_access');
 
 });
