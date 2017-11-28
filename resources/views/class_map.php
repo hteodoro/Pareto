@@ -27,7 +27,10 @@
           <div class="section" id="presentation">
             <div class="container animated fadeInDown">
               <h1 id="heading">Mapa de Desempenho</h1>
-              <h3 id="sub-heading">Salas - 3A</h3>
+              <?php $result = SchoolClass::show($class_id, 'id'); ?>
+              <?php foreach($result as $class) : ?>
+                <h3 id="sub-heading">Salas - <?php echo $class->nome; ?></h3>
+              <?php endforeach; ?>
             </div>
           </div>
 
