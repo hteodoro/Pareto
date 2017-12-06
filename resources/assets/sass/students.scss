@@ -12,6 +12,11 @@
 .section {
   margin: 30px;
   padding: 20px;
+
+  @media screen and (max-width: 1367px) {
+    margin: 0px;
+    padding: 15px;
+  }
 }
 
 #upper-options {
@@ -44,8 +49,8 @@
     }
 
     .icon {
-      margin: 25px 15px;
-      padding: 15px 0px;
+      margin: 0px 15px;
+      padding: 20px 0px;
       font-family: "Ionicons";
       font-size: 30px;
       color: $secondary;
@@ -53,10 +58,6 @@
 
     #search-icon:before {
       content: "\f21f";
-    }
-
-    #filter-icon:before {
-      content: "\f123";
     }
 
   }
@@ -88,12 +89,14 @@
         font-family: $montserrat;
         font-size: 18px;
         font-weight: 600;
+        line-height: 1.5;
         color: $secondary;
         opacity: 0.5;
       }
 
       .info-item {
         display: inline;
+        line-height: 1.5;
       }
 
       .name {
@@ -119,12 +122,20 @@
         opacity: 0.8;
 
         &:before {
-          padding: 20px;
+          padding: 0px 20px;
           content: "\f2b5";
           font-family: "Ionicons";
-          font-size: 28px;
+          font-size: 19px;
           color: $secondary;
         }
+
+        a {
+          &:link, &:visited {
+            color: $secondary;
+            opacity: 0.8;
+          }
+        }
+
       }
 
       .delete {
@@ -133,10 +144,38 @@
         font-weight: 600;
         color: $light-red;
         opacity: 0.8;
+
+        a {
+          &:link, &:visited {
+            color: $light-red;
+            opacity: 0.8;
+          }
+        }
+
       }
 
     }
 
   }
-
 }
+
+ #empty-info {
+   margin: 40px auto;
+   padding: 0 20px;
+   width: 40%;
+
+   @media screen and (max-width: 1367px) {
+     width: 60%;
+   }
+
+   .empty-info-text {
+     font-family: $montserrat;
+     font-size: 19px;
+     font-weight: 400;
+     line-height: 1.5;
+     text-align: center;
+     color: $secondary;
+     opacity: 0.8;
+   }
+
+ }

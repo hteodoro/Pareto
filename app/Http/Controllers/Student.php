@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class Student extends Controller {
 
-  public static function show($key, $key_type) {
+  public static function show($key = null, $key_type = null) {
     switch($key_type) {
       case 'id':
         // Return student by id
@@ -19,6 +19,26 @@ class Student extends Controller {
       case 'email':
         // Return student by email
         $result = DB::select('SELECT * FROM alunos WHERE email = :email', ['email' => $key]);
+        return $result;
+        break;
+      case 'name':
+        $result = DB::select(
+          "SELECT alunos.id, alunos.nome, salas.nome as 'sala', escolas.nome as 'escola'
+            FROM alunos, salas, escolas
+            WHERE alunos.nome LIKE '%$key%' AND
+            salas.id = alunos.sala_id AND
+            escolas.id = alunos.escola_id
+            ORDER BY salas.nome, alunos.nome"
+        );
+        return $result;
+      case null:
+        $result = DB::select(
+          "SELECT alunos.id, alunos.nome, salas.nome as 'sala', escolas.nome as 'escola'
+            FROM alunos, salas, escolas
+            WHERE salas.id = alunos.sala_id AND
+            escolas.id = alunos.escola_id
+            ORDER BY salas.nome, alunos.nome"
+        );
         return $result;
     }
   }
@@ -34,7 +54,12 @@ class Student extends Controller {
 
   }
 
-  public static function delete() {
-
+  public static function delete(Request $request, $student_id) {
+    // Delete the student
+    DB::table('alunos')->where('id', '=', $student_id)->delete();
+    return redirect('app/students');
+    // Delete student performance information
+    DB::table('dificuldade')->where('aluno_id', '=', $student_id)->delete();
   }
+
 }
