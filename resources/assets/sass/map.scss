@@ -12,6 +12,11 @@
 .section {
   margin: 30px;
   padding: 20px;
+
+  @media screen and (max-width: 1367px) {
+    margin: 0;
+    padding: 15px;
+  }
 }
 
 
@@ -51,10 +56,18 @@
   padding: 0px 20px;
   text-align: center;
 
+  @media screen and (max-width: 1367px) {
+    padding: 0;
+  }
+
   .item {
     display: block;
     margin: 60px;
     padding: 0px 20px;
+
+    @media screen and (max-width: 1367px) {
+      padding: 0;
+    }
 
     .info-list {
       margin: 0 auto;
@@ -66,12 +79,14 @@
         font-family: $montserrat;
         font-size: 18px;
         font-weight: 600;
+        line-height: 1.5;
         color: $secondary;
         opacity: 0.5;
       }
 
       .info-item {
         display: inline;
+        line-height: 1.5;
       }
 
       .name {

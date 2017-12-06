@@ -5,6 +5,7 @@
     <?php
       use App\Http\Controllers\Performance;
       use App\Http\Controllers\SchoolClass;
+      use App\Http\Controllers\Subject;
     ?>
     <head>
       <meta charset="utf-8">
@@ -48,63 +49,33 @@
                 </ul>
               </li>
 
+              <?php foreach(Subject::show() as $subject) : ?>
+                <li class="item">
+                  <ul class="info-list pure-g">
+                    <li class="info-item name pure-u-1-6"><?php echo $subject->nome; ?></li>
 
+                    <li class="info-item bad pure-u-1-6">
+                      <?php echo Performance::show($class_id, 'class', $subject->id, 'Muita dificuldade') . '%'; ?>
+                    </li>
 
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-6">Multiplicação</li>
-                  <li class="info-item bad pure-u-1-6">20%</li>
-                  <li class="info-item bad pure-u-1-6">15%</li>
-                  <li class="info-item mid pure-u-1-6">20%</li>
-                  <li class="info-item good pure-u-1-6">40%</li>
-                  <li class="info-item good pure-u-1-6">5%</li>
-                </ul>
-              </li>
+                    <li class="info-item bad pure-u-1-6">
+                      <?php echo Performance::show($class_id, 'class', $subject->id, 'Dificuldade') . '%'; ?>
+                    </li>
 
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-6">Divisão</li>
-                  <li class="info-item bad pure-u-1-6">20%</li>
-                  <li class="info-item bad pure-u-1-6">15%</li>
-                  <li class="info-item mid pure-u-1-6">20%</li>
-                  <li class="info-item good pure-u-1-6">40%</li>
-                  <li class="info-item good pure-u-1-6">5%</li>
-                </ul>
-              </li>
+                    <li class="info-item mid pure-u-1-6">
+                      <?php echo Performance::show($class_id, 'class', $subject->id, 'Mediano') . '%'; ?>
+                    </li>
 
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-6">Fração</li>
-                  <li class="info-item bad pure-u-1-6">20%</li>
-                  <li class="info-item bad pure-u-1-6">15%</li>
-                  <li class="info-item mid pure-u-1-6">20%</li>
-                  <li class="info-item good pure-u-1-6">40%</li>
-                  <li class="info-item good pure-u-1-6">5%</li>
-                </ul>
-              </li>
+                    <li class="info-item good pure-u-1-6">
+                      <?php echo Performance::show($class_id, 'class', $subject->id, 'Facilidade') . '%'; ?>
+                    </li>
 
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-6">Radicais</li>
-                  <li class="info-item bad pure-u-1-6">20%</li>
-                  <li class="info-item bad pure-u-1-6">15%</li>
-                  <li class="info-item mid pure-u-1-6">20%</li>
-                  <li class="info-item good pure-u-1-6">40%</li>
-                  <li class="info-item good pure-u-1-6">5%</li>
-                </ul>
-              </li>
-
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-6">Produtos Notáveis</li>
-                  <li class="info-item bad pure-u-1-6">20%</li>
-                  <li class="info-item bad pure-u-1-6">15%</li>
-                  <li class="info-item mid pure-u-1-6">20%</li>
-                  <li class="info-item good pure-u-1-6">40%</li>
-                  <li class="info-item good pure-u-1-6">5%</li>
-                </ul>
-              </li>
-
+                    <li class="info-item good pure-u-1-6">
+                      <?php echo Performance::show($class_id, 'class', $subject->id, 'Muita facilidade') . '%'; ?>
+                    </li>
+                  </ul>
+                </li>
+              <?php endforeach; ?>
 
             </ul>
           </div>

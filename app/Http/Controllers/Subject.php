@@ -18,7 +18,7 @@ class Subject extends Controller{
           break;
         case null:
           $result = DB::select('SELECT * FROM materias');
-          return $Result;
+          return $result;
       }
     }
 }
