@@ -22,7 +22,7 @@ class Performance extends Controller {
       }
 
       elseif($item_type == 'class') {
-        
+
       }
 
     }
@@ -66,8 +66,6 @@ class Performance extends Controller {
         'INSERT INTO dificuldade (aluno_id, materia_id, dificuldade_nivel) VALUES (:student_id, :subject_id, :level)',
         ['student_id' => $student_id, 'subject_id' => $subject_id, 'level' => $level]
       );
-
-      return json_encode(true);
-
+      
     }
 }

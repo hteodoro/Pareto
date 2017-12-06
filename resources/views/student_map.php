@@ -63,47 +63,6 @@
                 </li>
               <?php endforeach; ?>
 
-              <!-- <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-3">Multiplicação</li>
-                  <li class="info-item good pure-u-1-3">Muita Facilidade</li>
-                  <li class="info-item test pure-u-1-3">Teste 80/20</li>
-                </ul>
-              </li>
-
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-3">Divisão</li>
-                  <li class="info-item bad pure-u-1-3">Dificuldade</li>
-                  <li class="info-item test pure-u-1-3">Teste 80/20</li>
-                </ul>
-              </li>
-
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-3">Fração</li>
-                  <li class="info-item mid pure-u-1-3">Mediano</li>
-                  <li class="info-item test pure-u-1-3">Teste 80/20</li>
-                </ul>
-              </li>
-
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-3">Radicais</li>
-                  <li class="info-item bad pure-u-1-3">Muita Dificuldade</li>
-                  <li class="info-item test pure-u-1-3">Teste 80/20</li>
-                </ul>
-              </li>
-
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-3">Produtos Notáveis</li>
-                  <li class="info-item good pure-u-1-3">Facilidade</li>
-                  <li class="info-item test pure-u-1-3">Teste 80/20</li>
-                </ul>
-              </li> -->
-
-
             </ul>
           </div>
 
