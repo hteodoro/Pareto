@@ -12,6 +12,8 @@ class School extends Controller {
       switch($key_type) {
         case 'id':
           // Return school by id
+          $result = DB::select('SELECT * FROM escolas WHERE id = :id', ['id' => $key]);
+          return $result;
           break;
         case 'email':
           // Return school by email
@@ -32,12 +34,48 @@ class School extends Controller {
       );
     }
 
-    public static function update() {
+    public static function update(Request $request, $item) {
+      switch($item) {
 
+        case 'name':
+          DB::table('escolas')->where('id', '=', session('id'))->update(['nome' => $request->update_name]);
+          break;
+
+        case 'email':
+          DB::table('escolas')->where('id', '=', session('id'))->update(['email' => $request->update_email]);
+          break;
+
+        case 'password':
+          // Getting info from the school with the passed id
+          $result = DB::table('escolas')->where('id', '=', session('id'))->get();
+          // Variable to store school password
+          $password = '';
+          // Looping through the result
+          foreach($result as $school) {
+            // Storing the actual school password value
+            $password = $school->senha;
+          }
+          // Checking if the password is correct
+          if(Hash::make($request->actual_password) == $password) {
+            DB::table('escolas')->where('id', '=', session('id'))->update(['password' => Hash::make($request->update_password)]);
+          } else {
+            // TODO: Redirect to the perfil page
+            return redirect('app/perfil')->with('update_status', 'Sua senha atual está errada');
+          }
+          break;
+
+        case 'id':
+          DB::table('escolas')->where('id', '=', session('id'))->update(['identificador' => $request->update_school_id]);
+      }
     }
 
-    public static function delete() {
-
+    public static function delete($school_id) {
+      // Deleting the school register
+      DB::table('escolas')->where('id', '=', $school_id)->delete();
+      // Deleting all teachers registered in the school
+      DB::table('professores')->where('escola_id', '=', $school_id)->delete();
+      // Deleting all students registered in the school
+      DB::table('alunos')->where('escola_id', '=', $school_id)->delete();
     }
 
 }

@@ -78,6 +78,10 @@ Route::prefix('/app')->group(function() {
     return view('classes')->with('class_name', $class_name);
   })->name('classes')->middleware('check_auth', 'high_access');
 
+  Route::get('/perfil', function() {
+    return view('perfil');
+  })->name('perfil')->middleware('check_auth');
+
 });
 
 /********************************
@@ -115,7 +119,7 @@ Route::prefix('/app/classes')->group(function() {
 **********************************/
 Route::prefix('/app/students')->group(function() {
   // Update an existent class
-  Route::put('/update', 'Student@update')->middleware('check_auth')->middleware('check_auth', 'student_access');
+  Route::post('/update{item}', 'Student@update')->middleware('check_auth')->middleware('check_auth', 'student_access');
   // Delete a class
   Route::get('/delete/{student_id}', 'Student@delete')->middleware('check_auth')->middleware('check_auth', 'school_access');
 });
@@ -126,9 +130,20 @@ Route::prefix('/app/students')->group(function() {
 Route::prefix('/app/teachers')->group(function() {
   // Update an existent class
   // TODO:: Do a Middleware with access only to teacher
-  Route::put('/update', 'Teacher@update')->middleware('check_auth')->middleware('check_auth');
+  Route::post('/update/{item}', 'Teacher@update')->middleware('check_auth')->middleware('check_auth');
   // Delete a class
   Route::get('/delete/{teacher_id}', 'Teacher@delete')->middleware('check_auth')->middleware('check_auth', 'school_access');
+});
+
+/**********************************
+    SCHOOL OPERATIONS
+**********************************/
+Route::prefix('/app/school')->group(function() {
+  // Update an existent class
+  // TODO:: Do a Middleware with access only to teacher
+  Route::post('/update/{item}', 'School@update')->middleware('check_auth')->middleware('check_auth');
+  // Delete a class
+  Route::get('/delete/{school_id}', 'School@delete')->middleware('check_auth')->middleware('check_auth', 'school_access');
 });
 
 /*********************************
