@@ -28,6 +28,7 @@ class Teacher extends Controller {
             ORDER BY professores.nome"
         );
         return $result;
+        break;
       case null:
         $result = DB::select(
           "SELECT professores.id, professores.nome, professores.disciplina
@@ -51,7 +52,7 @@ class Teacher extends Controller {
   }
 
   public static function delete(Request $request, $teacher_id) {
-    // Delete the student
+    // Delete the teacher
     DB::table('professores')->where('id', '=', $teacher_id)->delete();
     return redirect('app/teachers');
   }

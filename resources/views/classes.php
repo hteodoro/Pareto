@@ -2,6 +2,11 @@
 
 <!DOCTYPE html>
   <html>
+
+    <?php
+      use App\Http\Controllers\SchoolClass;
+    ?>
+
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,45 +32,11 @@
               Insira um nome para a sala
             </p>
 
-            <input type="text" name="updateName" placeholder="Nome para sala...">
+            <input id="addClass" type="text" name="add-name" placeholder="Nome para sala...">
 
             <div id="button-holder">
               <a href="#"><p class="option-button nope">Cancelar</p></a>
-              <a href="/app/classes/"><p class="option-button okay">Adicionar</p></a>
-            </div>
-
-            <a class="close" href="#"></a>
-          </div>
-        </div>
-
-        <div class="modal" id="deleteModal">
-          <div class="modal-container">
-            <p class="modal-text">
-              Quando uma sala é deletada, todos alunos cadastrados nela
-              também são automáticamente deletados, tem certeza que deseja
-              deletar a sala do 3A?
-            </p>
-
-            <div id="button-holder">
-              <a href="#"><p class="option-button nope">Cancelar</p></a>
-              <a href="/app/classes/"><p class="option-button okay">Deletar</p></a>
-            </div>
-
-            <a class="close" href="#"></a>
-          </div>
-        </div>
-
-        <div class="modal" id="updateModal">
-          <div class="modal-container">
-            <p class="modal-text">
-              Insira o novo nome que deseja definir para a sala do 3A
-            </p>
-
-            <input type="text" name="updateName" placeholder="Novo nome para sala...">
-
-            <div id="button-holder">
-              <a href="#"><p class="option-button nope">Cancelar</p></a>
-              <a href="/app/classes/"><p class="option-button okay">Atualizar</p></a>
+              <p class="option-button okay" id="addConfirm">Adicionar</p>
             </div>
 
             <a class="close" href="#"></a>
@@ -84,57 +55,140 @@
           </div>
 
           <div class="section" id="info-section">
-            <ul id="info-holder" class="animated fadeInUp">
+            <?php if(!empty($class_name)) : ?>
+              <!-- Get the searched class by name -->
+              <?php $classes = SchoolClass::show($class_name, 'name'); ?>
+            <?php else : ?>
+              <!-- Getting all the classes -->
+              <?php $classes = SchoolClass::show(); ?>
+            <?php endif; ?>
 
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-title pure-u-1-4">Sala</li>
-                  <li class="info-title pure-u-1-4">Mapa de Desempenho</li>
-                  <li class="info-title pure-u-1-4">Atualizar Sala</li>
-                  <li class="info-title pure-u-1-4">Deletar Sala</li>
-                </ul>
-              </li>
+            <!-- Case students array IS NOT empty -->
+            <?php if(!empty($classes)) : ?>
 
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item class pure-u-1-4">3A</li>
-                  <li class="info-item map pure-u-1-4">Mapa</li>
-                  <li class="info-item update pure-u-1-4">atualizar</li>
-                  <li class="info-item delete pure-u-1-4">deletar</li>
-                </ul>
-              </li>
+              <ul id="info-holder" class="animated fadeInUp">
+                <li class="item">
+                  <ul class="info-list pure-g">
+                    <li class="info-title <?php if(session('type') == 'school') {echo 'pure-u-1-4';} else {echo 'pure-u-1-2';}?>">Sala</li>
+                    <li class="info-title <?php if(session('type') == 'school') {echo 'pure-u-1-4';} else {echo 'pure-u-1-2';}?>">Mapa de Desempenho</li>
+                    <?php if(session('type') == 'school') : ?>
+                      <li class="info-title pure-u-1-4">Atualizar Aluno</li>
+                      <li class="info-title pure-u-1-4">Deletar Aluno</li>
+                    <?php endif; ?>
+                  </ul>
+                </li>
 
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item class pure-u-1-4">3B</li>
-                  <li class="info-item map pure-u-1-4">Mapa</li>
-                  <li class="info-item update pure-u-1-4">atualizar</li>
-                  <li class="info-item delete pure-u-1-4">deletar</li>
-                </ul>
-              </li>
+                 <?php foreach($classes as $class) : ?>
+                   <li class="item">
+                     <ul class="info-list pure-g">
+                       <li class="info-item name <?php if(session('type') == 'school') {echo 'pure-u-1-4';} else {echo 'pure-u-1-2';}?>"><?php echo $class->nome; ?></li>
+                       <li class="info-item map <?php if(session('type') == 'school') {echo 'pure-u-1-4';} else {echo 'pure-u-1-3';}?>"><a href="/app/map/class/<?php echo $class->id; ?>">Mapa</a></li>
+                       <?php if(session('type') == 'school') : ?>
+                         <li class="info-item update pure-u-1-4"><a href="#updateModal<?php echo $class->id; ?>">Atualizar</a></li>
+                         <li class="info-item delete pure-u-1-4"><a href="#deleteModal<?php echo $class->id; ?>">Deletar</a></li>
+                       <?php endif; ?>
+                     </ul>
+                   </li>
 
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item class pure-u-1-4">2A</li>
-                  <li class="info-item map pure-u-1-4">Mapa</li>
-                  <li class="info-item update pure-u-1-4">atualizar</li>
-                  <li class="info-item delete pure-u-1-4">deletar</li>
-                </ul>
-              </li>
+                   <?php if(session('type') == 'school') : ?>
+                     <!-- DELETE MODAL -->
+                     <div class="modal" id="deleteModal<?php echo $class->id; ?>">
+                       <div class="modal-container">
+                         <p class="modal-text">
+                           Quando uma sala é deletada, todos alunos cadastrados nela
+                           também são automáticamente deletados, tem certeza que deseja
+                           deletar a sala do 3A?
+                         </p>
 
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item class pure-u-1-4">2B</li>
-                  <li class="info-item map pure-u-1-4">Mapa</li>
-                  <li class="info-item update pure-u-1-4">atualizar</li>
-                  <li class="info-item delete pure-u-1-4">deletar</li>
-                </ul>
-              </li>
-            </ul>
+                         <div id="button-holder">
+                           <a href="#"><p class="option-button nope">Cancelar</p></a>
+                           <a href="/app/classes/delete/<?php echo $class->id; ?>"><p class="option-button okay">Deletar</p></a>
+                         </div>
+
+                         <a class="close" href="#"></a>
+                       </div>
+                     </div>
+
+                     <!-- UPDATE MODAL -->
+                     <div class="modal" id="updateModal<?php echo $class->id; ?>">
+                       <div class="modal-container">
+                         <p class="modal-text">
+                           Insira o novo nome que deseja definir para a sala <?php echo $class->nome; ?>
+                         </p>
+
+                         <input id="updateClass" type="text" name="update_name" placeholder="Novo nome para sala...">
+                         <input id="classId" type="hidden" name="class_id" value="<?php echo $class->id; ?>">
+
+                         <div id="button-holder">
+                           <a href="#"><p class="option-button nope">Cancelar</p></a>
+                           <p class="option-button okay" id="updateConfirm">Atualizar</p>
+                         </div>
+
+                         <a class="close" href="#"></a>
+                       </div>
+                     </div>
+
+                   <?php endif; ?>
+                 <?php endforeach; ?>
+              </ul>
+
+            <!-- Case students array IS empty -->
+            <?php else: ?>
+              <div id="empty-info" class="animated fadeInUp">
+                <?php if(!empty($class_name)) : ?>
+                  <p class="empty-info-text">
+                    Não existe nenhuma sala adicionada com esse nome
+                    ou uma sala adicionada com nome semelhante na sua escola.
+                  </p>
+                <?php else : ?>
+                  <p class="empty-info-text">
+                    Ainda não há nenhuma sala adicionada na plataforma,
+                    salas adicionadas aparecerão aqui.
+                  </p>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
+
           </div>
 
-          <span id="add-class"></span>
+          <?php if(session('type') == 'school') : ?>
+            <span href="#addModal" id="add-class"></span>
+          <?php endif; ?>
       </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <!-- Script for the search request -->
+      <script>
+        $('#search-icon').on('click', function() {
+          // Getting the name from the input
+          let search_name = $('.search').val().toLowerCase();
+          // Checking if the value is not empty
+          if(search_name.length > 0) {
+            // Redirecting to the students page with a class name
+            window.location.href = "/app/classes/" + search_name;
+          }
+        });
+
+        // Load the add modal by click
+        $('#add-class').on('click', function() {
+          window.location.href = "/app/classes/#addModal";
+        });
+
+        // Adding a new class
+        $('#addConfirm').on('click', function() {
+          let className = $('#addClass').val();
+          window.location.href = "/app/classes/add/" + className;
+        });
+
+        // Updating a new class
+        $('#updateConfirm').on('click', function() {
+          let updateName = $('#updateClass').val();
+          let classId = $('#classId').val();
+          window.location.href = "/app/classes/update/" + classId + "/" + updateName;
+        });
+
+      </script>
 
     </body>
 

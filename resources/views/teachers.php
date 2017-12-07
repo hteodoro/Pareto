@@ -37,10 +37,10 @@
 
           <div class="section" id="info-section">
             <?php if(!empty($teacher_name)) : ?>
-              <!-- Get the searched student by name -->
+              <!-- Get the searched teacher by name -->
               <?php $teachers = Teacher::show($teacher_name, 'name'); ?>
             <?php else : ?>
-              <!-- Getting all the students -->
+              <!-- Getting all the teachers -->
               <?php $teachers = Teacher::show(); ?>
             <?php endif; ?>
 

@@ -73,9 +73,9 @@ Route::prefix('/app')->group(function() {
     return view('teachers')->with('teacher_name', $teacher_name);
   })->name('teachers')->middleware('check_auth', 'school_access');
 
-  Route::get('/classes', function() {
+  Route::get('/classes/{class_name?}', function($class_name = null) {
     // TODO: Retornar página com lista de salas
-    return view('classes');
+    return view('classes')->with('class_name', $class_name);
   })->name('classes')->middleware('check_auth', 'high_access');
 
 });
@@ -103,11 +103,11 @@ Route::prefix('/app/map')->group(function() {
 **********************************/
 Route::prefix('/app/classes')->group(function() {
   // Create new class
-  Route::post('/add', 'Class@store')->middleware('check_auth')->middleware('check_auth', 'school_access');
+  Route::get('/add/{class_name}', 'SchoolClass@add')->middleware('check_auth')->middleware('check_auth', 'school_access');
   // Update an existent class
-  Route::put('/update', 'Class@update')->middleware('check_auth')->middleware('check_auth', 'school_access');
+  Route::get('/update/{class_id}/{class_name}', 'SchoolClass@update')->middleware('check_auth')->middleware('check_auth', 'school_access');
   // Delete a class
-  Route::delete('/delete', 'Class@delete')->middleware('check_auth')->middleware('check_auth', 'school_access');
+  Route::get('/delete/{class_id}', 'SchoolClass@delete')->middleware('check_auth')->middleware('check_auth', 'school_access');
 });
 
 /**********************************
@@ -136,14 +136,3 @@ Route::prefix('/app/teachers')->group(function() {
 *********************************/
 
 Route::get('/performance', 'Performance@store')->middleware('check_auth');
-
-
-/*********************************
-    DEVELOPMENT TESTING
-*********************************/
-
-Route::get('/testing', function(Request $request) {
-
-  return $request->input('name');
-
-});

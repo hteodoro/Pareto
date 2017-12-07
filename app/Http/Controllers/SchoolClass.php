@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class SchoolClass extends Controller {
-  public static function show($key, $key_type) {
+  public static function show($key = null, $key_type = null) {
     switch($key_type) {
       case 'id':
         // Return the class by id
@@ -18,10 +18,13 @@ class SchoolClass extends Controller {
         $result = DB::select('SELECT * FROM salas WHERE escola_id = :school_id', ['school_id' => $key]);
         return $result;
         break;
-      case 'name':
-        // Return the class by name
-        $result = DB::select('SELECT * FROM salas WHERE nome = :name', ['name' => $key]);
-        return $result;
+        case 'name':
+          $result = DB::select("SELECT salas.id, salas.nome FROM salas WHERE salas.nome LIKE '%$key%' ORDER BY salas.nome");
+          return $result;
+          break;
+        case null:
+          $result = DB::select("SELECT salas.id, salas.nome FROM salas ORDER BY salas.nome");
+          return $result;
     }
   }
 
@@ -32,11 +35,25 @@ class SchoolClass extends Controller {
     );
   }
 
-  public static function update() {
-
+  public static function add($class_name) {
+    DB::insert(
+      'INSERT INTO salas (nome, escola_id) VALUES (:name, :school_id)',
+      ['name' => $class_name, 'school_id' => session('id')]
+    );
+    return redirect('/app/classes');
   }
 
-  public static function delete() {
+  public static function update($class_id, $class_name) {
+    // Update the class with the passed ID
+    DB::table('salas')->where('id', '=', $class_id)->update(['nome' => $class_name]);
+    return redirect('app/classes');
+  }
 
+  public static function delete($class_id) {
+    // Delete the class
+    DB::table('salas')->where('id', '=', $class_id)->delete();
+    return redirect('app/classes');
+    // Delete all the students in that class
+    DB::table('alunos')->where('sala_id', '=', $class_id)->delete();
   }
 }

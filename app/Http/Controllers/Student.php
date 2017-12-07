@@ -31,6 +31,7 @@ class Student extends Controller {
             ORDER BY salas.nome, alunos.nome"
         );
         return $result;
+        break;
       case null:
         $result = DB::select(
           "SELECT alunos.id, alunos.nome, salas.nome as 'sala', escolas.nome as 'escola'

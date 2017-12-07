@@ -8,6 +8,10 @@
   background-color: #FFF;
   border-radius: 5px;
 
+  @media screen and (max-width: 1367px) {
+    width: 50%;
+  }
+
   -webkit-transform: translate(-50%, -500%);
   -ms-transform: translate(-50%, -500%);
   transform: translate(-50%, -500%);
@@ -29,6 +33,10 @@
     font-weight: 400;
     color: $secondary;
     opacity: 0.9;
+
+    @media screen and (max-width: 1367px) {
+      width: 65%;
+    }
   }
 
   .modal-text {
