@@ -75,7 +75,7 @@
                      <div class="modal" id="deleteModal<?php echo $student->id; ?>">
                        <div class="modal-container">
                          <p class="modal-text">
-                           Tem certeza que deseja deletar o aluno <?php echo $student->nome; ?>
+                           Tem certeza que deseja deletar o aluno <?php echo $student->nome; ?>?
                          </p>
 
                          <div id="button-holder">

@@ -38,6 +38,40 @@
           </div>
         </div>
 
+        <div class="modal" id="deleteModal">
+          <div class="modal-container">
+            <p class="modal-text">
+              Quando uma sala é deletada, todos alunos cadastrados nela
+              também são automáticamente deletados, tem certeza que deseja
+              deletar a sala do 3A?
+            </p>
+
+            <div id="button-holder">
+              <a href="#"><p class="option-button nope">Cancelar</p></a>
+              <a href="/app/classes/"><p class="option-button okay">Deletar</p></a>
+            </div>
+
+            <a class="close" href="#"></a>
+          </div>
+        </div>
+
+        <div class="modal" id="updateModal">
+          <div class="modal-container">
+            <p class="modal-text">
+              Insira o novo nome que deseja definir para a sala do 3A
+            </p>
+
+            <input type="text" name="updateName" placeholder="Novo nome para sala...">
+
+            <div id="button-holder">
+              <a href="#"><p class="option-button nope">Cancelar</p></a>
+              <a href="/app/classes/"><p class="option-button okay">Atualizar</p></a>
+            </div>
+
+            <a class="close" href="#"></a>
+          </div>
+        </div>
+
           <div class="section" id="upper-options">
             <ul id="selectors" class="animated fadeInDown">
               <li class="item">
@@ -51,40 +85,6 @@
 
           <div class="section" id="info-section">
             <ul id="info-holder" class="animated fadeInUp">
-
-              <div class="modal" id="deleteModal">
-                <div class="modal-container">
-                  <p class="modal-text">
-                    Quando uma sala é deletada, todos alunos cadastrados nela
-                    também são automáticamente deletados, tem certeza que deseja
-                    deletar a sala do 3A?
-                  </p>
-
-                  <div id="button-holder">
-                    <a href="#"><p class="option-button nope">Cancelar</p></a>
-                    <a href="/app/classes/"><p class="option-button okay">Deletar</p></a>
-                  </div>
-
-                  <a class="close" href="#"></a>
-                </div>
-              </div>
-
-              <div class="modal" id="updateModal">
-                <div class="modal-container">
-                  <p class="modal-text">
-                    Insira o novo nome que deseja definir para a sala do 3A
-                  </p>
-
-                  <input type="text" name="updateName" placeholder="Novo nome para sala...">
-
-                  <div id="button-holder">
-                    <a href="#"><p class="option-button nope">Cancelar</p></a>
-                    <a href="/app/classes/"><p class="option-button okay">Atualizar</p></a>
-                  </div>
-
-                  <a class="close" href="#"></a>
-                </div>
-              </div>
 
               <li class="item">
                 <ul class="info-list pure-g">

@@ -1,6 +1,11 @@
 
 <!DOCTYPE html>
   <html>
+
+    <?php
+      use App\Http\Controllers\Teacher;
+    ?>
+
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,50 +36,88 @@
           </div>
 
           <div class="section" id="info-section">
-            <ul id="info-holder" class="animated fadeInUp">
+            <?php if(!empty($teacher_name)) : ?>
+              <!-- Get the searched student by name -->
+              <?php $teachers = Teacher::show($teacher_name, 'name'); ?>
+            <?php else : ?>
+              <!-- Getting all the students -->
+              <?php $teachers = Teacher::show(); ?>
+            <?php endif; ?>
 
-              <div class="modal" id="deleteModal">
-                <div class="modal-container">
-                  <p class="modal-text">
-                    Tem certeza que deseja deletar o professor Wesley Hammer?
+            <!-- Case students array IS NOT empty -->
+            <?php if(!empty($teachers)) : ?>
+
+              <ul id="info-holder" class="animated fadeInUp">
+                <li class="item">
+                  <ul class="info-list pure-g">
+                    <li class="info-title pure-u-1-3">Nome</li>
+                    <li class="info-title pure-u-1-3">Disciplina</li>
+                    <li class="info-title pure-u-1-3">Deletar Professor</li>
+                  </ul>
+                </li>
+
+                 <?php foreach($teachers as $teacher) : ?>
+                   <li class="item">
+                     <ul class="info-list pure-g">
+                       <li class="info-item name pure-u-1-3"><?php echo $teacher->nome; ?></li>
+                       <li class="info-item subject pure-u-1-3"><?php echo $teacher->disciplina; ?></li>
+                       <li class="info-item delete pure-u-1-3"><a href="#deleteModal<?php echo $teacher->id; ?>">deletar</a></li>
+                     </ul>
+                   </li>
+
+                   <?php if(session('type') == 'school') : ?>
+                     <div class="modal" id="deleteModal<?php echo $teacher->id; ?>">
+                       <div class="modal-container">
+                         <p class="modal-text">
+                           Tem certeza que deseja deletar o professor <?php echo $teacher->nome; ?>?
+                         </p>
+
+                         <div id="button-holder">
+                           <a href="#"><p class="option-button nope">Cancelar</p></a>
+                           <a href="/app/teachers/delete/<?php echo $teacher->id; ?>"><p class="option-button okay">Deletar</p></a>
+                         </div>
+
+                         <a class="close" href="#"></a>
+                       </div>
+                     </div>
+                   <?php endif; ?>
+                 <?php endforeach; ?>
+              </ul>
+
+            <!-- Case students array IS empty -->
+            <?php else: ?>
+              <div id="empty-info" class="animated fadeInUp">
+                <?php if(!empty($teacher_name)) : ?>
+                  <p class="empty-info-text">
+                    Não existe nenhum professor registrado com esse nome
+                    ou um nome semelhante na sua escola.
                   </p>
-
-                  <div id="button-holder">
-                    <a href="#"><p class="option-button nope">Cancelar</p></a>
-                    <a href="/app/teachers/"><p class="option-button okay">Deletar</p></a>
-                  </div>
-
-                  <a class="close" href="#"></a>
-                </div>
+                <?php else : ?>
+                  <p class="empty-info-text">
+                    Ainda não há nenhum professor registrado na plataforma,
+                    professores registrados aparecerão aqui.
+                  </p>
+                <?php endif; ?>
               </div>
+            <?php endif; ?>
 
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-title pure-u-1-3">Nome</li>
-                  <li class="info-title pure-u-1-3">Disciplina</li>
-                  <li class="info-title pure-u-1-3">Deletar Professor</li>
-                </ul>
-              </li>
-
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-3">Wesley Hammer</li>
-                  <li class="info-item subject pure-u-1-3">Matemática</li>
-                  <li class="info-item delete pure-u-1-3">deletar</li>
-                </ul>
-              </li>
-
-              <li class="item">
-                <ul class="info-list pure-g">
-                  <li class="info-item name pure-u-1-3">Thiago Matias</li>
-                  <li class="info-item subject pure-u-1-3">Matemática</li>
-                  <li class="info-item delete pure-u-1-3">deletar</li>
-                </ul>
-              </li>
-            </ul>
           </div>
-
       </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <!-- Script for the search request -->
+      <script>
+        $('#search-icon').on('click', function() {
+          // Getting the name from the input
+          let search_name = $('.search').val().toLowerCase();
+          // Checking if the value is not empty
+          if(search_name.length > 0) {
+            // Redirecting to the students page with a teacher name
+            window.location.href = "/app/teachers/" + search_name;
+          }
+        });
+      </script>
 
     </body>
 

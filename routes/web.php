@@ -68,9 +68,9 @@ Route::prefix('/app')->group(function() {
     return view('students')->with('student_name', $student_name);
   })->name('students')->middleware('check_auth', 'high_access');
 
-  Route::get('/teachers', function() {
+  Route::get('/teachers/{teacher_name?}', function($teacher_name = null) {
     // TODO: Retornar página com lista de professores (Especifico para escolas)
-    return view('teachers');
+    return view('teachers')->with('teacher_name', $teacher_name);
   })->name('teachers')->middleware('check_auth', 'school_access');
 
   Route::get('/classes', function() {
@@ -128,7 +128,7 @@ Route::prefix('/app/teachers')->group(function() {
   // TODO:: Do a Middleware with access only to teacher
   Route::put('/update', 'Teacher@update')->middleware('check_auth')->middleware('check_auth');
   // Delete a class
-  Route::get('/delete', 'Teacher@delete')->middleware('check_auth')->middleware('check_auth', 'school_access');
+  Route::get('/delete/{teacher_id}', 'Teacher@delete')->middleware('check_auth')->middleware('check_auth', 'school_access');
 });
 
 /*********************************

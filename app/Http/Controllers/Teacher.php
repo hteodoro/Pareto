@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class Teacher extends Controller {
 
-  public static function show($key, $key_type) {
+  public static function show($key = null, $key_type = null) {
     switch($key_type) {
       case 'id':
         // Return teacher by id
@@ -18,6 +18,23 @@ class Teacher extends Controller {
       case 'email':
         // Return teacher by email
         $result = DB::select('SELECT * FROM professores WHERE email = :email', ['email' => $key]);
+        return $result;
+      case 'name':
+        $result = DB::select(
+          "SELECT professores.id, professores.nome, professores.disciplina
+            FROM professores, escolas
+            WHERE professores.nome LIKE '%$key%' AND
+            escolas.id = professores.escola_id
+            ORDER BY professores.nome"
+        );
+        return $result;
+      case null:
+        $result = DB::select(
+          "SELECT professores.id, professores.nome, professores.disciplina
+            FROM professores, escolas
+            WHERE escolas.id = professores.escola_id
+            ORDER BY professores.nome"
+        );
         return $result;
     }
   }
@@ -33,7 +50,9 @@ class Teacher extends Controller {
 
   }
 
-  public static function delete() {
-
+  public static function delete(Request $request, $teacher_id) {
+    // Delete the student
+    DB::table('professores')->where('id', '=', $teacher_id)->delete();
+    return redirect('app/teachers');
   }
 }
